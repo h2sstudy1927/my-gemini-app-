@@ -2781,6 +2781,38 @@
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
       );
     }
+
+    // =========================================================================
+    // --- 🚀 AUTO-RESTORE ACTIVE SESSION ON APP LAUNCH (NEVER SIGN IN AGAIN) ---
+    // =========================================================================
+    (function autoRestoreActiveSession() {
+      try {
+        // 1. Check if user already logged in or signed up previously on this device
+        const savedSession = localStorage.getItem('h2s_active_session') || localStorage.getItem('h2s_remembered_session');
+        if (savedSession) {
+          const user = JSON.parse(savedSession);
+          if (user && user.name && user.role) {
+            console.log("[H2S STUDY] Restoring persistent session for:", user.name);
+            loginUser(user, true); // true = silent instant restore without annoying login prompts
+            return;
+          }
+        }
+
+        // 2. If no active session, check if credentials exist to pre-fill
+        const savedCreds = localStorage.getItem('h2s_saved_credentials');
+        if (savedCreds) {
+          const creds = JSON.parse(savedCreds);
+          if (creds && creds.mobile && loginMobile) {
+            loginMobile.value = creds.mobile;
+          }
+          if (creds && creds.password && loginPassword) {
+            loginPassword.value = creds.password;
+          }
+        }
+      } catch(err) {
+        console.error("[H2S STUDY] Session restore error:", err);
+      }
+    })();
   </script>
 </body>
 </html>
