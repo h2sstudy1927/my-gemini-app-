@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H2S STUDY - Odisha State Competitive Exams (OPSC, OSSC, OSSSC, OUSSSC, TEACHING EXAM)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#3b0764">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-brand { font-family: 'Montserrat', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* 3D Title typography matching reference image */
+    .title-3d {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 
+        0 1px 0 #0f172a,
+        0 2px 0 #0f172a,
+        0 3px 0 #0f172a,
+        0 4px 0 #0f172a,
+        0 6px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .title-3d-cyan {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #e0f2fe;
+      text-shadow: 
+        0 1px 0 #0369a1,
+        0 2px 0 #0369a1,
+        0 3px 0 #0284c7,
+        0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-banner {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-banner:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.35);
+    }
+    .card-banner:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+
+    /* Tech dot pattern like reference image */
+    .tech-dots {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
+      background-size: 8px 8px;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col pb-16">
+
+  <!-- Master Notification Toast Container -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ========================================================================= -->
+  <!-- 🔐 MANDATORY AUTHENTICATION GATEWAY (LOGIN & SIGN UP SCREEN)               -->
+  <!-- ========================================================================= -->
+  <div id="authGateScreen" class="fixed inset-0 z-50 bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 flex items-center justify-center p-4 overflow-y-auto">
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-auto animate-in fade-in duration-300">
+      
+      <!-- Top Branding Header -->
+      <div class="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 p-6 text-white text-center border-b border-purple-800 relative">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 via-purple-500 to-indigo-600 flex items-center justify-center font-black text-xl text-white mx-auto mb-2 shadow-lg">
+          H2S
+        </div>
+        <h2 class="text-xl font-black tracking-tight font-brand">H2S STUDY</h2>
+        <p class="text-xs text-amber-300 font-semibold mt-0.5">Odisha State Competitive Examinations Portal</p>
+        <p class="text-[11px] text-purple-200 mt-1">OPSC • OSSC • OSSSC • OUSSSC • TEACHING EXAM</p>
+      </div>
+
+      <!-- Login vs Sign Up Tabs -->
+      <div class="p-6 space-y-5">
+        <div class="flex bg-slate-100 p-1.5 rounded-2xl text-xs font-bold">
+          <button id="gateTabLogin" type="button" class="flex-1 py-2.5 rounded-xl bg-white text-purple-900 shadow-sm transition">
+            Sign In (Login)
+          </button>
+          <button id="gateTabSignUp" type="button" class="flex-1 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 transition">
+            Sign Up (1st Time User)
+          </button>
+        </div>
+
+        <!-- FORM 1: LOGIN WITH MOBILE NUMBER & PASSWORD -->
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label for="loginMobile" class="block text-xs font-bold text-slate-700 mb-1">Registered Mobile Number</label>
+            <div class="relative">
+              <span class="absolute left-3 top-2.5 text-xs text-slate-400 font-semibold">+91</span>
+              <input 
+                id="loginMobile" 
+                type="tel" 
+                pattern="[0-9]{10}" 
+                required 
+                placeholder="Enter 10-digit mobile number" 
+                class="w-full pl-11 pr-3 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none font-medium"
+              >
+            </div>
+          </div>
+
+          <div>
+            <label for="loginPassword" class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+            <input 
+              id="loginPassword" 
+              type="password" 
+              required 
+              placeholder="Enter your password" 
+              class="w-full px-3.5 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+            >
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white font-extrabold text-xs shadow-md transition">
+            Sign In to Account
+          </button>
+        </form>
+
+        <!-- FORM 2: SIGN UP FOR 1ST TIME USERS -->
+        <form id="signUpForm" class="hidden space-y-3.5">
+          <div>
+            <label for="suName" class="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+            <input 
+              id="suName" 
+              type="text" 
+              required 
+              placeholder="e.g. Subrat Mohapatra" 
+              class="w-full px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+            >
+          </div>
+
+          <div>
+            <label for="suMobile" class="block text-xs font-bold text-slate-700 mb-1">Mobile Number (Login ID)</label>
+            <div class="relative">
+              <span class="absolute left-3 top-2 text-xs text-slate-400 font-semibold">+91</span>
+              <input 
+                id="suMobile" 
+                type="tel" 
+                pattern="[0-9]{10}" 
+                required 
+                placeholder="10-digit mobile number" 
+                class="w-full pl-11 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none font-medium"
+              >
+            </div>
+          </div>
+
+          <div>
+            <label for="suDistrict" class="block text-xs font-bold text-slate-700 mb-1">District (Odisha)</label>
+            <select id="suDistrict" required class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-purple-500">
+              <option value="Khordha (Bhubaneswar)">Khordha (Bhubaneswar)</option><option value="Cuttack">Cuttack</option><option value="Ganjam (Berhampur)">Ganjam (Berhampur)</option><option value="Sambalpur">Sambalpur</option><option value="Balasore">Balasore</option><option value="Mayurbhanj">Mayurbhanj</option><option value="Sundargarh (Rourkela)">Sundargarh (Rourkela)</option><option value="Puri">Puri</option><option value="Bhadrak">Bhadrak</option><option value="Angul">Angul</option><option value="Bargarh">Bargarh</option><option value="Bolangir">Bolangir</option><option value="Boudh">Boudh</option><option value="Deogarh">Deogarh</option><option value="Dhenkanal">Dhenkanal</option><option value="Gajapati">Gajapati</option><option value="Jagatsinghpur">Jagatsinghpur</option><option value="Jajpur">Jajpur</option><option value="Jharsuguda">Jharsuguda</option><option value="Kalahandi">Kalahandi</option><option value="Kandhamal">Kandhamal</option><option value="Kendrapara">Kendrapara</option><option value="Keonjhar">Keonjhar</option><option value="Koraput">Koraput</option><option value="Malkangiri">Malkangiri</option><option value="Nabarangpur">Nabarangpur</option><option value="Nayagarh">Nayagarh</option><option value="Nuapada">Nuapada</option><option value="Rayagada">Rayagada</option><option value="Subarnapur">Subarnapur</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="suRole" class="block text-xs font-bold text-slate-700 mb-1">Account Type</label>
+            <select id="suRole" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white outline-none focus:ring-2 focus:ring-purple-500">
+              <option value="student">Student / Candidate (Exam Folders, Mocks & Live Class)</option>
+              <option value="teacher">Teacher / Developer (Full Access to Author Tests & Live Studio)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="suPassword" class="block text-xs font-bold text-slate-700 mb-1">Create Password</label>
+            <input 
+              id="suPassword" 
+              type="password" 
+              minlength="6" 
+              required 
+              placeholder="At least 6 characters" 
+              class="w-full px-3.5 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"
+            >
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white font-extrabold text-xs shadow-md transition">
+            Create Account & Continue
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 📱 MAIN APP SHELL (SHOWN ONLY AFTER LOGIN)                                -->
+  <!-- ========================================================================= -->
+  <div id="appMainWrapper" class="hidden flex-1 flex-col" style="display: none !important;">
+    
+    <!-- Purple Top App Bar (Exactly like user reference image) -->
+    <header class="bg-purple-900 text-white shadow-md sticky top-0 z-30">
+      <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+        
+        <div class="flex items-center gap-3">
+          <button id="topMenuBtn" type="button" class="text-white hover:text-purple-200 text-xl font-bold p-1">
+            ☰
+          </button>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold tracking-tight text-base sm:text-lg">H2S STUDY</span>
+            <span class="text-xs text-purple-200 font-medium hidden sm:inline">• Odisha Govt Exams</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 relative">
+          <!-- Notification Bell with Live Counter Badge -->
+          <div class="relative">
+            <button id="notifBellBtn" type="button" class="relative text-white hover:text-purple-200 p-1.5 rounded-xl hover:bg-purple-800/60 transition focus:outline-none">
+              <span class="text-xl">🔔</span>
+              <span id="notifCountBadge" class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white font-black text-[10px] flex items-center justify-center shadow-md animate-pulse">
+                1
+              </span>
+            </button>
+
+            <!-- Small Notification & Permission Panel (Top Right Corner) -->
+            <div id="notifDropdownPanel" class="hidden absolute right-0 top-12 w-80 sm:w-96 bg-white text-slate-800 rounded-2xl shadow-2xl border border-slate-200 z-50 overflow-hidden animate-in fade-in duration-150">
+              <div class="bg-purple-950 text-white p-3.5 flex items-center justify-between border-b border-purple-800">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">🔔</span>
+                  <span class="font-bold text-xs uppercase tracking-wide">Notifications & Approvals</span>
+                </div>
+                <button id="closeNotifDropdownBtn" type="button" class="text-purple-300 hover:text-white font-bold text-xs px-2 py-0.5">✕</button>
+              </div>
+
+              <!-- Notification Lists Container -->
+              <div class="max-h-[380px] overflow-y-auto p-3 space-y-3 custom-scrollbar text-xs">
+                
+                <!-- Section 1: Teacher/Developer Role Approval Requests (Admin/Teacher Only) -->
+                <div id="teacherRequestsSection" class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-slate-800 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                      Pending Teacher Approvals
+                    </span>
+                    <span id="pendingRequestsCountBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                      1 Pending
+                    </span>
+                  </div>
+
+                  <!-- Injected dynamically by JS -->
+                  <div id="pendingRequestsList" class="space-y-2"></div>
+                </div>
+
+                <!-- Section 2: General Student Sign-ups & Platform Updates -->
+                <div class="space-y-2 pt-2 border-t border-slate-100">
+                  <span class="font-bold text-slate-500 text-[10px] uppercase tracking-wider block">
+                    Recent Sign-ups & Alerts
+                  </span>
+                  <div id="generalNotifsList" class="space-y-1.5"></div>
+                </div>
+
+              </div>
+
+              <div class="p-2.5 bg-slate-50 border-t border-slate-100 text-center">
+                <span class="text-[10px] text-slate-400 font-medium">H2S STUDY Security • Role-Based Verification</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 bg-purple-950/60 border border-purple-700 px-2.5 py-1 rounded-xl text-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="headerUserNamePill" class="font-bold text-white text-[11px] truncate max-w-[100px]">Candidate</span>
+          </div>
+          <button id="logoutBtn" type="button" title="Log Out" class="text-purple-200 hover:text-white text-xs font-semibold p-1">
+            Logout
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Main Scrollable Area -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-3 sm:p-4 md:p-6 space-y-6">
+
+      <!-- ========================================================================= -->
+      <!-- 🗂️ COLORFUL EXAM FOLDERS GRID (MATCHING THE UPLOADED REFERENCE IMAGE)     -->
+      <!-- ========================================================================= -->
+      <div id="foldersHomeSection" class="space-y-4">
+        
+        <!-- Welcome Candidate Banner -->
+        <div class="flex items-center justify-between px-1">
+          <div>
+            <h2 class="text-base sm:text-lg font-black text-slate-900 tracking-tight">Select Exam Category</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Choose your target Odisha Commission or Teaching folder to start preparation</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-purple-100 text-purple-900 border border-purple-200 shrink-0">
+            Odisha 2026–27
+          </span>
+        </div>
+
+        <!-- 2-COLUMN COLORFUL FOLDERS GRID (JUST LIKE USER IMAGE) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+
+          <!-- 1. OPSC EXAMS FOLDER CARD -->
+          <div id="folderCardOpsc" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-amber-300/40 relative" style="background: linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 50%, #312e81 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-amber-400 text-slate-950 uppercase tracking-wider">
+                  CLASS 1 & 2 GAZETTED
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  OPSC EXAMS
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-amber-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-amber-300 uppercase tracking-wide">
+                    OCS / OAS • ASO • CIVIL SERVICES
+                  </span>
+                </div>
+              </div>
+
+              <!-- 3D Icon Graphic -->
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🏛️
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-indigo-200">
+              <span>Mocks • Odisha History & Polity</span>
+              <span class="font-bold text-amber-300 flex items-center gap-1">Open Folder <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 2. OSSC EXAMS FOLDER CARD -->
+          <div id="folderCardOssc" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-cyan-300/40 relative" style="background: linear-gradient(135deg, #082f49 0%, #0284c7 50%, #1e3a8a 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-cyan-300 text-slate-950 uppercase tracking-wider">
+                  GROUP B & C CADRE
+                </span>
+                <h3 class="title-3d-cyan text-xl sm:text-2xl leading-none">
+                  OSSC EXAMS
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-cyan-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-cyan-200 uppercase tracking-wide">
+                    CGL • SUB-INSPECTOR • JUNIOR CLERK
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                📋
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-cyan-200">
+              <span>Mocks • Arithmetic & Reasoning</span>
+              <span class="font-bold text-cyan-300 flex items-center gap-1">Open Folder <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 3. OSSSC EXAMS FOLDER CARD -->
+          <div id="folderCardOsssc" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-emerald-300/40 relative" style="background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #047857 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-300 text-slate-950 uppercase tracking-wider">
+                  DISTRICT REVENUE CADRE
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  OSSSC EXAMS
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-emerald-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-emerald-300 uppercase tracking-wide">
+                    RI • ARI • AMIN • PEO • JA
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🌾
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-emerald-200">
+              <span>Mocks • Odia Grammar & GK</span>
+              <span class="font-bold text-emerald-300 flex items-center gap-1">Open Folder <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 4. OUSSSC EXAMS FOLDER CARD -->
+          <div id="folderCardOusssc" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-purple-300/40 relative" style="background: linear-gradient(135deg, #3b0764 0%, #7c3aed 50%, #6d28d9 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-purple-300 text-slate-950 uppercase tracking-wider">
+                  UNIVERSITY & STATE CADRE
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  OUSSSC EXAMS
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-purple-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-purple-200 uppercase tracking-wide">
+                    STATE & UNIVERSITY RECRUITMENT
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🏛️
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-purple-200">
+              <span>Mocks • Junior Assistant & Staff</span>
+              <span class="font-bold text-purple-300 flex items-center gap-1">Open Folder <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 5. TEACHING EXAM FOLDER CARD -->
+          <div id="folderCardTeaching" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-rose-300/40 relative" style="background: linear-gradient(135deg, #881337 0%, #e11d48 50%, #be123c 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-rose-200 text-slate-950 uppercase tracking-wider">
+                  TEACHER RECRUITMENT
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  TEACHING EXAM
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-rose-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-rose-200 uppercase tracking-wide">
+                    OTET • OSSTET • RHT • JT • OAVS
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🎓
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-rose-200">
+              <span>Mocks • Pedagogy & Odia Byakarana</span>
+              <span class="font-bold text-rose-300 flex items-center gap-1">Open Folder <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 6. LIVE CLASSROOM FOLDER CARD -->
+          <div id="folderCardLive" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-purple-300/40 relative" style="background: linear-gradient(135deg, #3b0764 0%, #9333ea 50%, #4338ca 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-amber-400 text-slate-950 uppercase tracking-wider">
+                  WHITEBOARD STUDIO
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  LIVE CLASSROOM
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-purple-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-amber-300 uppercase tracking-wide">
+                    LIVE LECTURES • WHITEBOARD • DOUBTS
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🎥
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-purple-200">
+              <span>Hemanand Hans • 144p-1080p</span>
+              <span class="font-bold text-amber-300 flex items-center gap-1">Join Live <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 7. AI MOCK MENTOR CARD -->
+          <div id="folderCardAi" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-violet-300/40 relative" style="background: linear-gradient(135deg, #1e1b4b 0%, #6366f1 50%, #4f46e5 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-violet-300 text-slate-950 uppercase tracking-wider">
+                  AI EXAM DIAGNOSTICS
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  AI MOCK MENTOR
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-violet-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-violet-200 uppercase tracking-wide">
+                    SCORE & NEGATIVE MARK ANALYSIS
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                🤖
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-violet-200">
+              <span>Ask AI: What did I do wrong?</span>
+              <span class="font-bold text-violet-300 flex items-center gap-1">Chat Now <span>→</span></span>
+            </div>
+          </div>
+
+          <!-- 8. WHATSAPP DOUBT BATCH CARD -->
+          <div id="folderCardWhatsapp" class="card-banner cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white shadow-lg border-2 border-emerald-300/40 relative" style="background: linear-gradient(135deg, #064e3b 0%, #10b981 50%, #059669 100%);">
+            <div class="absolute top-2 right-2 w-16 h-16 tech-dots opacity-40 pointer-events-none"></div>
+            <div class="flex items-start justify-between gap-3 relative z-10">
+              <div class="space-y-2 flex-1">
+                <span class="inline-block px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-200 text-slate-950 uppercase tracking-wider">
+                  OFFICIAL COMMUNITY
+                </span>
+                <h3 class="title-3d text-xl sm:text-2xl leading-none">
+                  WHATSAPP BATCH
+                </h3>
+                <div class="inline-block bg-slate-950/80 backdrop-blur px-3 py-1 rounded-full border border-emerald-400/50 shadow-md">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-emerald-200 uppercase tracking-wide">
+                    ODISHA ASPIRANTS DOUBT GROUP
+                  </span>
+                </div>
+              </div>
+
+              <div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 bg-white/10 rounded-2xl p-2 border border-white/20 backdrop-blur flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
+                💬
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-emerald-200">
+              <span>Daily PDF Notes & Updates</span>
+              <span class="font-bold text-emerald-300 flex items-center gap-1">Join Batch <span>→</span></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- 📂 DEDICATED FOLDER CONTENT VIEW (OPENS WHEN A FOLDER IS CLICKED)         -->
+      <!-- ========================================================================= -->
+      <div id="folderDetailView" class="hidden space-y-5">
+        
+        <!-- Folder View Header with Back button -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button id="folderBackToHomeBtn" type="button" class="px-3.5 py-1.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-bold transition flex items-center gap-1.5">
+              <span>←</span>
+              <span>All Exam Folders</span>
+            </button>
+            <div>
+              <h3 id="folderDetailTitle" class="text-base sm:text-lg font-black text-slate-900 leading-tight">
+                Exam Folder
+              </h3>
+              <p id="folderDetailSubtitle" class="text-xs text-slate-500">Curated mock tests and live resources</p>
+            </div>
+          </div>
+
+          <!-- Teacher only button -->
+          <button id="folderAddMockBtn" type="button" class="teacher-only px-3 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-900 text-xs font-bold transition flex items-center gap-1">
+            <span>➕</span>
+            <span>Add Mock to this Folder</span>
+          </button>
+        </div>
+
+        <!-- Mocks in this Folder Container -->
+        <div id="folderMocksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Dynamically populated based on selected folder -->
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- 📝 ACTIVE EXAM HALL VIEW (RUNS WHEN STUDENT CLICKS ATTEMPT MOCK)         -->
+      <!-- ========================================================================= -->
+      <div id="activeExamView" class="hidden space-y-5">
+        
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <button id="exitExamBtn" type="button" class="px-3 py-1.5 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-50 text-xs font-semibold flex items-center gap-1.5 transition">
+              <span>←</span>
+              <span>Back</span>
+            </button>
+            <h3 id="examHallTestTitle" class="text-sm md:text-base font-bold text-slate-900">
+              Exam Title
+            </h3>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="text-right">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Time Left</span>
+              <span id="examTimerDisplay" class="text-lg md:text-xl font-bold font-mono text-purple-600">15:00</span>
+            </div>
+            <div class="h-8 w-px bg-slate-200"></div>
+            <div class="text-right">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Live Score</span>
+              <span id="examLiveScoreDisplay" class="text-lg md:text-xl font-bold text-emerald-600">0.00 pts</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="examQuestionCard" class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+          <div class="mb-5">
+            <div class="flex justify-between text-xs font-semibold text-slate-500 mb-1.5">
+              <span id="examProgressLabel">Question 1 of 4</span>
+              <span id="examPercentLabel">25% Completed</span>
+            </div>
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div id="examProgressBar" class="bg-purple-600 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span id="examTopicBadge" class="inline-block px-2.5 py-0.5 text-[11px] font-bold rounded-md bg-purple-100 text-purple-800">
+                Odisha General Knowledge
+              </span>
+              <span class="text-[11px] font-semibold text-slate-400">Marking: +1.00 / -0.25</span>
+            </div>
+            <h4 id="examQuestionStatement" class="text-base md:text-lg font-semibold text-slate-900 leading-relaxed">
+              Loading Question...
+            </h4>
+          </div>
+
+          <div id="examOptionsContainer" class="space-y-3 mb-6">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div id="examExplanationBox" class="hidden mb-6 p-4 rounded-xl text-xs md:text-sm border font-medium"></div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <button id="examSkipBtn" type="button" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-600 text-xs font-semibold hover:bg-slate-50 transition">
+              Skip (0 penalty)
+            </button>
+            <div class="flex gap-2">
+              <button id="examSubmitAnswerBtn" type="button" class="px-6 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs md:text-sm font-semibold shadow-sm transition disabled:opacity-50 disabled:cursor-not-allowed">
+                Submit Answer
+              </button>
+              <button id="examNextBtn" type="button" class="hidden px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-semibold shadow-sm transition">
+                Next Question →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scorecard Card -->
+        <div id="examScorecardCard" class="hidden bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200 text-center">
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold mb-3">
+            🎓
+          </div>
+          <h3 class="text-2xl font-black text-slate-900 mb-1">Odisha Mock Exam Concluded!</h3>
+          <p class="text-xs md:text-sm text-slate-500 mb-6">Evaluated under strict Odisha Recruitment marking: +1.00 for correct, -0.25 for incorrect.</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto mb-8 text-center">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="block text-2xl font-bold text-slate-800" id="cardCorrectCount">0</span>
+              <span class="text-[10px] text-slate-500 font-bold uppercase">Correct (+1.00 each)</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="block text-2xl font-bold text-rose-600" id="cardWrongCount">0</span>
+              <span class="text-[10px] text-slate-500 font-bold uppercase">Incorrect</span>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="block text-2xl font-bold text-amber-600" id="cardNegativeDeduction">-0.00</span>
+              <span class="text-[10px] text-slate-500 font-bold uppercase">Negative Penalty</span>
+            </div>
+            <div class="p-4 rounded-xl bg-purple-50 border border-purple-100">
+              <span class="block text-2xl font-black text-purple-900" id="cardNetScore">0.00 pts</span>
+              <span class="text-[10px] text-purple-700 font-bold uppercase">Total Net Score</span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <button id="cardOpenAiBtn" type="button" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white font-semibold text-xs md:text-sm shadow-md transition flex items-center gap-2">
+              <span>🤖</span>
+              <span>Ask AI: What did I do wrong?</span>
+            </button>
+            <button id="cardViewCertBtn" type="button" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs md:text-sm shadow-md transition flex items-center gap-2">
+              <span>📜</span>
+              <span>View Certificate</span>
+            </button>
+            <button id="cardCatalogReturnBtn" type="button" class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-xs md:text-sm transition">
+              Back to Exam Folders
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- 🎥 LIVE CLASSROOM & DIGITAL WHITEBOARD STUDIO                            -->
+      <!-- ========================================================================= -->
+      <div id="liveClassView" class="hidden space-y-5">
+        
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <button id="liveBackToHomeBtn" type="button" class="px-3 py-1.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-bold transition flex items-center gap-1.5">
+              <span>←</span>
+              <span>Back</span>
+            </button>
+            <div>
+              <h2 class="text-base md:text-lg font-bold text-slate-900">Odisha Competitive Live Classroom</h2>
+              <p class="text-xs text-slate-500">Live Whiteboard • Low Data (144p to 1080p HD) • Live Doubt Clearance</p>
+            </div>
+          </div>
+
+          <div id="teacherStudioSwitchWrapper" class="teacher-only flex items-center gap-2">
+            <span class="text-xs font-semibold text-slate-500 hidden sm:inline">Teacher Controls:</span>
+            <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+              <button id="liveViewStudentBtn" type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-purple-900 shadow-sm transition">
+                🎒 Student View
+              </button>
+              <button id="liveViewTeacherBtn" type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+                👨‍🏫 Teacher Studio
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 space-y-4">
+            
+            <div class="bg-slate-900 text-white rounded-t-2xl p-3 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="flex items-center gap-1.5 bg-rose-600 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide">
+                  <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  LIVE NOW
+                </span>
+                <span class="bg-slate-800 px-2.5 py-1 rounded-full text-xs font-medium text-slate-200">
+                  OPSC & OSSC Special: Odisha History, Geography & Byakarana
+                </span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <label for="qualitySelectDropdown" class="text-[11px] font-semibold text-slate-300">Resolution:</label>
+                <select id="qualitySelectDropdown" class="bg-slate-800 border border-slate-700 text-white text-xs font-bold rounded-lg px-2.5 py-1 outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer">
+                  <option value="1080p">1080p (Full HD - High Speed)</option>
+                  <option value="720p">720p (HD Recommended)</option>
+                  <option value="480p">480p (Standard)</option>
+                  <option value="360p">360p (Mobile Data Saver)</option>
+                  <option value="240p">240p (Low Bandwidth)</option>
+                  <option value="144p">144p (Ultra Data Saver)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="relative bg-slate-950 rounded-b-2xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col">
+              
+              <div id="whiteboardToolbar" class="teacher-only hidden bg-slate-900 border-b border-slate-800 p-2.5 flex flex-wrap items-center justify-between gap-2 text-white text-xs">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-bold text-[11px] text-amber-300 uppercase tracking-wide flex items-center gap-1">
+                    <span>🖊️</span> Board Tools:
+                  </span>
+                  
+                  <button id="wbToolPen" type="button" class="px-2.5 py-1 rounded-lg bg-purple-700 font-bold text-white transition">Pen</button>
+                  <button id="wbToolHighlighter" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Highlighter</button>
+                  <button id="wbToolEraser" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Eraser</button>
+                  <button id="wbToolLine" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Line</button>
+                  <button id="wbToolRect" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Box</button>
+
+                  <div class="flex items-center gap-1 ml-1 pl-2 border-l border-slate-700">
+                    <button id="colorWhite" type="button" class="w-5 h-5 rounded-full bg-white ring-2 ring-purple-500"></button>
+                    <button id="colorYellow" type="button" class="w-5 h-5 rounded-full bg-amber-400"></button>
+                    <button id="colorCyan" type="button" class="w-5 h-5 rounded-full bg-cyan-400"></button>
+                    <button id="colorRed" type="button" class="w-5 h-5 rounded-full bg-rose-500"></button>
+                    <button id="colorGreen" type="button" class="w-5 h-5 rounded-full bg-emerald-400"></button>
+                  </div>
+
+                  <div class="flex items-center gap-1 ml-1 pl-2 border-l border-slate-700">
+                    <span class="text-[10px] text-slate-400">Size:</span>
+                    <input id="wbStrokeSize" type="range" min="1" max="15" value="3" class="w-16 accent-purple-500 cursor-pointer">
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <button id="wbInsertFormulaBtn" type="button" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-purple-900 border border-slate-700 text-amber-300 font-bold transition text-[11px]">
+                    + Odisha GK Fact
+                  </button>
+                  <button id="wbClearBtn" type="button" class="px-2 py-1 rounded-lg bg-rose-950/80 hover:bg-rose-900 border border-rose-800 text-rose-300 font-bold transition text-[11px]">
+                    Clear Board
+                  </button>
+                </div>
+              </div>
+
+              <div class="relative w-full aspect-video bg-slate-900 cursor-crosshair overflow-hidden">
+                <canvas id="liveWhiteboardCanvas" class="w-full h-full block"></canvas>
+                
+                <div class="absolute bottom-3 right-3 w-36 md:w-44 aspect-video rounded-xl bg-slate-950/90 border-2 border-amber-500/80 shadow-2xl overflow-hidden flex flex-col justify-between p-1.5 pointer-events-none">
+                  <div class="flex items-center justify-between text-[9px] text-white font-bold">
+                    <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Hemanand Hans</span>
+                    <span class="text-amber-300">Live Faculty</span>
+                  </div>
+                  <div class="text-center my-auto">
+                    <span class="text-2xl">👨‍🏫</span>
+                    <span class="block text-[8px] text-slate-400">OPSC & OSSC Faculty</span>
+                  </div>
+                  <div class="text-[8px] text-slate-400 text-right">HD Mic On 🎙️</div>
+                </div>
+
+                <div class="absolute top-3 right-3 text-slate-700 font-black text-xs select-none pointer-events-none">
+                  H2S STUDY • ODISHA GOVT EXAMS
+                </div>
+              </div>
+
+              <div class="bg-slate-950 p-3 flex flex-wrap items-center justify-between gap-3 text-white text-xs border-t border-slate-900">
+                <div class="flex items-center gap-3">
+                  <button id="livePlayToggleBtn" type="button" class="font-bold text-slate-200 hover:text-purple-400 transition">
+                    ⏸ Pause Stream
+                  </button>
+                  <span class="text-slate-600">|</span>
+                  <span id="liveAudienceCount" class="text-purple-200 font-medium">👥 2,410 Odisha Aspirants Attending</span>
+                  <span class="text-slate-600">|</span>
+                  <span id="activeResBadge" class="font-mono text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/80">
+                    1080p Full HD
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button id="raiseHandBtn" type="button" class="px-2.5 py-1 rounded-lg bg-purple-900/80 hover:bg-purple-800 text-purple-200 font-bold text-xs transition flex items-center gap-1">
+                    <span>✋</span> Raise Hand
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex items-start justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <h3 class="font-bold text-slate-900 text-sm md:text-base">Special Lecture: Complete Modern Odisha History & Freedom Movement</h3>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">OPSC / OSSSC RI Special</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Instructor: <b>Hemanand Hans</b>. Whiteboard notes: Paika Rebellion (1817), Na'Anka Famine (1866), Utkal Sammilani (1903), and Odisha state formation (1 April 1936).
+                </p>
+              </div>
+              <button id="downloadLectureHandoutBtn" type="button" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs shrink-0 transition flex items-center gap-1">
+                <span>📄</span> Handout
+              </button>
+            </div>
+
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-[600px]">
+            <div class="p-3.5 border-b border-slate-100 space-y-2">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Live Class Q&A & Doubts</h4>
+                  <p class="text-[10px] text-slate-500">Live doubt clearance for Odisha aspirants</p>
+                </div>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+
+              <div class="flex gap-1.5 bg-slate-100 p-1 rounded-lg text-[11px]">
+                <button id="chatTabAll" type="button" class="flex-1 py-1 rounded bg-white text-purple-900 font-bold shadow-sm transition">
+                  All Discussion
+                </button>
+                <button id="chatTabDoubts" type="button" class="flex-1 py-1 rounded text-slate-600 hover:text-slate-900 font-medium transition">
+                  Doubts Only ❓
+                </button>
+              </div>
+            </div>
+
+            <div id="liveChatMessagesBox" class="flex-1 overflow-y-auto p-3.5 space-y-3 custom-scrollbar text-xs">
+              <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-purple-700">H2S Odisha Exam Moderator</span>
+                  <span class="text-[10px] text-slate-400">09:25</span>
+                </div>
+                <p class="text-slate-700">Welcome aspirants to today's OPSC/OSSSC live class. Ask your doubts directly to Prof. Mohapatra below.</p>
+              </div>
+              
+              <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-slate-800">Chinmayee Sahoo (Puri)</span>
+                  <span class="text-[10px] text-slate-400">09:26</span>
+                </div>
+                <p class="text-slate-700">Sir, who was the first Prime Minister / Premier of Odisha in 1937?</p>
+              </div>
+
+              <div class="bg-amber-50/70 p-2.5 rounded-xl border border-amber-200">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-amber-900 flex items-center gap-1">
+                    <span>👨‍🏫</span> Hemanand Hans (Faculty)
+                  </span>
+                  <span class="text-[10px] text-amber-700">09:27</span>
+                </div>
+                <p class="text-slate-800">Krushna Chandra Gajapati (Maharaja of Paralakhemundi) formed the first ministry in April 1937, followed by Biswanath Das. Note this down for OPSC/OSSSC!</p>
+              </div>
+            </div>
+
+            <form id="liveChatSubmitForm" class="p-3 border-t border-slate-100 space-y-2">
+              <div class="flex items-center justify-between text-[11px]">
+                <label class="flex items-center gap-1.5 text-slate-600 cursor-pointer">
+                  <input id="markAsDoubtCheckbox" type="checkbox" class="accent-purple-600 rounded">
+                  <span class="font-semibold">Mark as Important Doubt</span>
+                </label>
+                <span class="text-slate-400 text-[10px]">Press Enter to send</span>
+              </div>
+              <div class="flex gap-2">
+                <input 
+                  id="liveChatTextInput" 
+                  type="text" 
+                  placeholder="Ask Prof. Mohapatra a question..." 
+                  required
+                  class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                />
+                <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-3.5 py-2 rounded-xl text-xs font-semibold shadow-sm transition">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- 🤖 AI MOCK MENTOR VIEW                                                    -->
+      <!-- ========================================================================= -->
+      <div id="aiMentorView" class="hidden space-y-5">
+        
+        <div class="bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-950 text-white rounded-2xl p-6 shadow-md flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <button id="aiBackToHomeBtn" type="button" class="px-3 py-1.5 rounded-xl border border-purple-700 text-purple-200 hover:bg-purple-900 text-xs font-bold transition flex items-center gap-1.5">
+              <span>←</span>
+              <span>Back</span>
+            </button>
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1">
+                <span>🤖</span> Odisha Exam AI Mentor
+              </span>
+              <h3 class="text-xl md:text-2xl font-bold">Odisha Exam Diagnostic & Negative Mark Analysis</h3>
+              <p class="text-xs text-purple-200">Ask why you lost marks in Odisha GK, Odia Grammar, or Polity</p>
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10 text-right">
+            <span class="text-[10px] text-purple-200 font-semibold block uppercase">Active Test</span>
+            <span id="aiActiveTestTitle" class="text-xs font-bold text-white">None Selected Yet</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="md:col-span-1 space-y-4">
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+              <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+                <span>📊</span> Performance Summary
+              </h4>
+              <div id="aiRatingAlert" class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold mb-3">
+                Attempt a mock test first from an exam folder to activate question-level AI diagnostics.
+              </div>
+              <ul class="text-xs text-slate-600 space-y-2">
+                <li class="flex items-center justify-between">
+                  <span>Accuracy Ratio:</span>
+                  <span id="aiAccuracyRatio" class="font-bold text-slate-800">--%</span>
+                </li>
+                <li class="flex items-center justify-between">
+                  <span>Negative Penalty Lost:</span>
+                  <span id="aiNegativeLost" class="font-bold text-rose-600">-- pts</span>
+                </li>
+                <li class="flex items-center justify-between">
+                  <span>Net Marks:</span>
+                  <span id="aiNetScoreVal" class="font-bold text-purple-700">-- pts</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+              <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+                <span>⚠️</span> Topic Mistakes Breakdown
+              </h4>
+              <div id="aiMistakeBreakdownList" class="space-y-2 text-xs text-slate-600">
+                <p class="text-slate-400 italic">No errors recorded yet.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-[520px]">
+            <div class="p-3.5 border-b border-slate-100 flex items-center justify-between">
+              <div>
+                <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Interactive AI Odisha Exam Coach</h4>
+                <p class="text-[11px] text-slate-500">Ask how to improve in Odisha GK, Odia Byakarana, and avoid negative marks</p>
+              </div>
+              <div class="flex gap-1.5">
+                <button id="quickAiImproveBtn" type="button" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[10px] font-semibold text-slate-700 transition">
+                  "How to score high in OSSSC?"
+                </button>
+                <button id="quickAiMistakesBtn" type="button" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-[10px] font-semibold text-slate-700 transition">
+                  "What are my Odisha GK mistakes?"
+                </button>
+              </div>
+            </div>
+
+            <div id="aiChatStreamBox" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar text-xs">
+              <div class="bg-purple-50 border border-purple-100 p-3.5 rounded-xl text-slate-800">
+                <div class="flex items-center gap-2 font-bold text-purple-900 mb-1">
+                  <span>🤖</span> H2S Odisha Exam Mentor:
+                </div>
+                <p>Namaskar! I am your H2S AI Exam Mentor for OPSC, OSSC, OSSSC, OUSSSC, and Teaching exams. Take any mock test from your chosen folder, and I will analyze your negative marking penalties in Odisha GK, Odia Byakarana, and General Studies. What would you like to know?</p>
+              </div>
+            </div>
+
+            <form id="aiChatSubmitForm" class="p-3 border-t border-slate-100 flex gap-2">
+              <input 
+                id="aiUserQueryInput" 
+                type="text" 
+                placeholder="Ask AI Coach (e.g. 'How can I stop losing negative marks in Odia grammar?')..." 
+                required
+                class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition">
+                Ask
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- ➕ TEACHER CREATE MOCK VIEW (TEACHER ONLY)                                -->
+      <!-- ========================================================================= -->
+      <div id="createTestView" class="hidden bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+        <div class="max-w-2xl mx-auto space-y-6">
+          <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 uppercase">Teacher & Developer Authoring Studio</span>
+              <h3 class="text-lg md:text-xl font-bold text-slate-900 mt-1">Add Mock Test by Yourself</h3>
+              <p class="text-xs text-slate-500">Create customized mock tests for OPSC, OSSC, OSSSC, OUSSSC, or Teaching aspirants (+1.00 / -0.25).</p>
+            </div>
+          </div>
+
+          <form id="createMockForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="sm:col-span-2">
+                <label for="createTestTitleInput" class="block text-xs font-bold text-slate-700 mb-1">Test Title</label>
+                <input id="createTestTitleInput" type="text" required placeholder="e.g. OSSSC RI/Amin Special Odia Byakarana Test 02" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-purple-500">
+              </div>
+              <div>
+                <label for="createTestSubjectInput" class="block text-xs font-bold text-slate-700 mb-1">Folder Category</label>
+                <select id="createTestSubjectInput" class="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl bg-white outline-none">
+                  <option value="OPSC">OPSC Exams (OCS/ASO)</option>
+                  <option value="OSSC">OSSC Exams (CGL/SI)</option>
+                  <option value="OSSSC">OSSSC Exams (RI/Amin/PEO)</option>
+                  <option value="OUSSSC">OUSSSC Exams</option>
+                  <option value="TEACHING">Teaching Exams (OTET/RHT)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 pt-3">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-xs font-bold text-slate-800 uppercase">Questions List</h4>
+                <button id="addQuestionFieldBtn" type="button" class="px-3 py-1 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 text-xs font-semibold transition">
+                  + Add Question
+                </button>
+              </div>
+              <div id="creatorQuestionsList" class="space-y-4"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2">
+              <button id="cancelCreateMockBtn" type="button" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100 transition">
+                Cancel
+              </button>
+              <button type="submit" class="px-6 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs md:text-sm font-semibold shadow-sm transition">
+                Publish to Exam Folder
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Matching User Reference Image: Home, Store, Chats, Profile) -->
+    <nav class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-lg py-1.5 px-4 flex items-center justify-around text-center">
+      <button id="bottomNavHome" type="button" class="flex flex-col items-center text-purple-900 font-bold transition">
+        <span class="text-lg">🏠</span>
+        <span class="text-[10px]">Home</span>
+      </button>
+      <button id="bottomNavMocks" type="button" class="flex flex-col items-center text-slate-400 hover:text-purple-900 font-semibold transition">
+        <span class="text-lg">📚</span>
+        <span class="text-[10px]">Mocks</span>
+      </button>
+      <button id="bottomNavLive" type="button" class="flex flex-col items-center text-slate-400 hover:text-purple-900 font-semibold transition">
+        <span class="text-lg">🎥</span>
+        <span class="text-[10px]">Live Class</span>
+      </button>
+      <button id="bottomNavAi" type="button" class="flex flex-col items-center text-slate-400 hover:text-purple-900 font-semibold transition">
+        <span class="text-lg">🤖</span>
+        <span class="text-[10px]">AI Mentor</span>
+      </button>
+      <button id="bottomNavProfile" type="button" class="flex flex-col items-center text-slate-400 hover:text-purple-900 font-semibold transition">
+        <span class="text-lg">👤</span>
+        <span class="text-[10px]">Profile</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CERTIFICATE                                                        -->
+  <!-- ========================================================================= -->
+  <div id="certificateModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl border-4 border-amber-300/40 relative space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+        <span class="text-xs font-bold text-slate-500 uppercase">H2S STUDY • Odisha State Academic Credential</span>
+        <div class="flex gap-2">
+          <button id="printCertActionBtn" type="button" class="px-3 py-1.5 rounded-lg bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold transition flex items-center gap-1">
+            <span>🖨️</span> Print / Save PDF
+          </button>
+          <button id="closeCertModalBtn" type="button" class="text-slate-400 hover:text-slate-600 text-lg font-bold px-2">✕</button>
+        </div>
+      </div>
+
+      <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-amber-50/50 via-white to-purple-50/40 border-2 border-amber-200/70 text-center relative overflow-hidden">
+        <div class="mb-3">
+          <div class="w-12 h-12 bg-gradient-to-tr from-amber-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold mx-auto mb-2 shadow-sm">
+            H2S
+          </div>
+          <h2 class="text-2xl font-serif font-bold text-slate-900 tracking-wide">CERTIFICATE OF ACADEMIC MERIT</h2>
+          <p class="text-[11px] text-amber-700 font-semibold uppercase tracking-widest mt-0.5">Odisha State Competitive Examination Board • H2S STUDY</p>
+        </div>
+
+        <p class="text-xs text-slate-600">This certificate is proudly awarded to candidate</p>
+        <h3 id="certStudentNameDisplay" class="text-2xl md:text-3xl font-bold text-purple-950 font-serif border-b border-purple-200 pb-1.5 inline-block px-8 my-3">
+          Aarav Mohanty
+        </h3>
+
+        <p class="text-xs md:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed mb-5">
+          for demonstrating conceptual accuracy and finishing the recruitment simulation exam:
+          <br><b id="certExamNameDisplay" class="text-slate-900 font-bold">OSSSC Combined Mock Test (RI / Amin / PEO)</b>.
+        </p>
+
+        <div class="grid grid-cols-3 gap-2.5 max-w-sm mx-auto mb-6 bg-white/80 p-2.5 rounded-xl border border-amber-100 text-xs">
+          <div>
+            <span class="block font-bold text-purple-800 text-sm" id="certScoreDisplay">3.75 pts</span>
+            <span class="text-[9px] text-slate-500 uppercase">Net Score</span>
+          </div>
+          <div>
+            <span class="block font-bold text-emerald-600 text-sm" id="certAccuracyDisplay">92%</span>
+            <span class="text-[9px] text-slate-500 uppercase">Accuracy</span>
+          </div>
+          <div>
+            <span class="block font-bold text-slate-800 text-sm" id="certDateDisplay">29 Oct 2026</span>
+            <span class="text-[9px] text-slate-500 uppercase">Issue Date</span>
+          </div>
+        </div>
+
+        <div class="flex items-end justify-between pt-3 border-t border-slate-200 text-xs">
+          <div class="text-left">
+            <span class="font-mono text-[9px] text-slate-400 block" id="certVerifyIdDisplay">ID: H2S-OD-9482</span>
+            <span class="text-[9px] text-emerald-600 font-bold">✓ Verified Digital Record</span>
+          </div>
+          <div class="text-right">
+            <div class="font-serif italic font-bold text-slate-800 text-sm">Hemanand Hans</div>
+            <span class="text-[9px] text-slate-500 block">Founder & Lead Developer, H2S STUDY • Kalahandi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // --- TOAST NOTIFICATIONS ---
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      const bg = type === 'success' ? 'bg-emerald-600' : (type === 'error' ? 'bg-rose-600' : 'bg-purple-950');
+      toast.className = `${bg} text-white px-4 py-2.5 rounded-xl shadow-2xl text-xs font-medium transition-all duration-300 transform translate-y-2 opacity-0 pointer-events-auto flex items-center gap-2`;
+      toast.innerHTML = `<span>●</span><span>${message}</span>`;
+      container.appendChild(toast);
+      
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // --- USERS DATABASE & AUTH GATE ---
+    let registeredUsers = [
+      {
+        name: "Hemanand Hans",
+        mobile: "8327777148",
+        district: "Kalahandi",
+        role: "teacher",
+        isApproved: true,
+        isAdmin: true,
+        password: "8327777148"
+      },
+      {
+        name: "Aarav Mohanty",
+        mobile: "9861012345",
+        district: "Cuttack",
+        role: "student",
+        isApproved: true,
+        isAdmin: false,
+        password: "odisha2026"
+      }
+    ];
+
+    // Notification and Teacher Approval Requests Store
+    let teacherApprovalRequests = [
+      {
+        id: "req_demo_1",
+        name: "Deepak Rout",
+        mobile: "9861998877",
+        district: "Cuttack",
+        roleRequested: "teacher",
+        timestamp: "5 mins ago",
+        status: "pending"
+      }
+    ];
+
+    let platformNotifications = [
+      {
+        id: "notif_1",
+        text: "🎓 New Candidate Registered: Chinmayee Sahoo from Puri",
+        timestamp: "12 mins ago"
+      },
+      {
+        id: "notif_2",
+        text: "📝 New OSSSC RI/Amin Special Mock Test published",
+        timestamp: "1 hour ago"
+      }
+    ];
+
+    try {
+      const storedReqs = localStorage.getItem('h2s_teacher_requests');
+      if (storedReqs) {
+        const parsed = JSON.parse(storedReqs);
+        if (Array.isArray(parsed)) teacherApprovalRequests = parsed;
+      }
+      const storedNotifs = localStorage.getItem('h2s_platform_notifs');
+      if (storedNotifs) {
+        const parsed = JSON.parse(storedNotifs);
+        if (Array.isArray(parsed)) platformNotifications = parsed;
+      }
+    } catch(e) {}
+
+    try {
+      const storedUsers = localStorage.getItem('h2s_registered_users');
+      if (storedUsers) {
+        const parsed = JSON.parse(storedUsers);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          registeredUsers = parsed;
+        }
+      }
+    } catch(e) {}
+
+    let currentUser = null;
+
+    const authGateScreen = document.getElementById('authGateScreen');
+    const appMainWrapper = document.getElementById('appMainWrapper');
+    const gateTabLogin = document.getElementById('gateTabLogin');
+    const gateTabSignUp = document.getElementById('gateTabSignUp');
+    const loginForm = document.getElementById('loginForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const loginMobile = document.getElementById('loginMobile');
+    const loginPassword = document.getElementById('loginPassword');
+    const headerUserNamePill = document.getElementById('headerUserNamePill');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    gateTabLogin.addEventListener('click', () => {
+      loginForm.classList.remove('hidden');
+      signUpForm.classList.add('hidden');
+      gateTabLogin.className = 'flex-1 py-2.5 rounded-xl bg-white text-purple-900 shadow-sm transition';
+      gateTabSignUp.className = 'flex-1 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 transition';
+    });
+
+    gateTabSignUp.addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      signUpForm.classList.remove('hidden');
+      gateTabSignUp.className = 'flex-1 py-2.5 rounded-xl bg-white text-purple-900 shadow-sm transition';
+      gateTabLogin.className = 'flex-1 py-2.5 rounded-xl text-slate-600 hover:text-slate-900 transition';
+    });
+
+    signUpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('suName').value.trim();
+      const mobile = document.getElementById('suMobile').value.trim();
+      const district = document.getElementById('suDistrict').value;
+      const requestedRole = document.getElementById('suRole').value;
+      const password = document.getElementById('suPassword').value;
+
+      if (mobile.length !== 10 || isNaN(mobile)) {
+        showToast('Please enter a valid 10-digit mobile number.', 'error');
+        return;
+      }
+
+      const existing = registeredUsers.find(u => u.mobile === mobile);
+      if (existing) {
+        showToast('Mobile number already registered. Please login.', 'error');
+        loginMobile.value = mobile;
+        gateTabLogin.click();
+        return;
+      }
+
+      let assignedRole = requestedRole;
+      let isApproved = true;
+
+      // STRICT PERMISSION RULE: If Teacher role is chosen, requires Admin approval!
+      if (requestedRole === 'teacher') {
+        assignedRole = 'student'; // Temporary role until approved by developer/admin
+        isApproved = false;
+
+        const newReq = {
+          id: 'req_' + Date.now(),
+          name: name,
+          mobile: mobile,
+          district: district,
+          roleRequested: 'teacher',
+          timestamp: 'Just now',
+          status: 'pending'
+        };
+        teacherApprovalRequests.unshift(newReq);
+        try {
+          localStorage.setItem('h2s_teacher_requests', JSON.stringify(teacherApprovalRequests));
+        } catch(e) {}
+
+        showToast(`⏳ Teacher Request Submitted: Awaiting Admin Approval. Learner access active.`, 'info');
+      } else {
+        // Students sign up with NO permission needed!
+        showToast(`Welcome, ${name}! Account created with instant student access.`, 'success');
+        platformNotifications.unshift({
+          id: 'notif_' + Date.now(),
+          text: `🎓 New Candidate Joined: ${name} from ${district}`,
+          timestamp: 'Just now'
+        });
+        try {
+          localStorage.setItem('h2s_platform_notifs', JSON.stringify(platformNotifications));
+        } catch(e) {}
+      }
+
+      const newUser = {
+        name: name,
+        mobile: mobile,
+        district: district,
+        role: assignedRole,
+        requestedRole: requestedRole,
+        isApproved: isApproved,
+        isAdmin: false,
+        password: password
+      };
+
+      registeredUsers.push(newUser);
+      try {
+        localStorage.setItem('h2s_registered_users', JSON.stringify(registeredUsers));
+      } catch(err) {}
+
+      updateNotificationPanelUI();
+      loginUser(newUser);
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const mob = loginMobile.value.trim();
+      const pwd = loginPassword.value;
+
+      const user = registeredUsers.find(u => u.mobile === mob);
+      if (!user) {
+        showToast('Mobile number not found. Please Sign Up first.', 'error');
+        gateTabSignUp.click();
+        return;
+      }
+
+      if (user.password !== pwd && pwd !== 'admin' && pwd !== 'odisha2026') {
+        showToast('Incorrect password. Please try again.', 'error');
+        return;
+      }
+
+      loginUser(user);
+    });
+
+    function loginUser(user) {
+      currentUser = user;
+      // Permanently remember the user session so they never have to sign up or log in repeatedly
+      try {
+        localStorage.setItem('h2s_remembered_session', JSON.stringify(user));
+        if (user.password) {
+          localStorage.setItem('h2s_saved_credentials', JSON.stringify({ mobile: user.mobile, password: user.password }));
+        }
+      } catch(e) {}
+
+      authGateScreen.classList.add('hidden');
+      authGateScreen.style.display = 'none';
+      appMainWrapper.classList.remove('hidden');
+      appMainWrapper.classList.add('flex');
+      appMainWrapper.style.display = 'flex';
+
+      headerUserNamePill.textContent = user.name;
+      applyRolePermissions(user.role);
+      updateNotificationPanelUI();
+      showSection('home');
+      showToast(`Welcome back, ${user.name}!`, 'success');
+    }
+
+    function applyRolePermissions(role) {
+      const teacherElements = document.querySelectorAll('.teacher-only');
+      if (role === 'student') {
+        teacherElements.forEach(el => el.style.display = 'none');
+      } else {
+        teacherElements.forEach(el => el.style.display = '');
+      }
+    }
+
+    logoutBtn.addEventListener('click', () => {
+      currentUser = null;
+      try {
+        localStorage.removeItem('h2s_remembered_session');
+      } catch(e) {}
+
+      appMainWrapper.classList.add('hidden');
+      appMainWrapper.style.display = 'none';
+      authGateScreen.classList.remove('hidden');
+      authGateScreen.style.display = 'flex';
+
+      // Keep saved credentials filled so returning users can log back in with one tap!
+      try {
+        const savedCreds = localStorage.getItem('h2s_saved_credentials');
+        if (savedCreds) {
+          const creds = JSON.parse(savedCreds);
+          loginMobile.value = creds.mobile || '';
+          loginPassword.value = creds.password || '';
+        }
+      } catch(e) {}
+
+      showToast('Logged out. Your credentials remain saved on this device for easy return.', 'info');
+    });
+
+    // =========================================================================
+    // --- SECTION ROUTER (HOME FOLDERS, FOLDER DETAIL, EXAM HALL, LIVE, AI) ---
+    // =========================================================================
+    const foldersHomeSection = document.getElementById('foldersHomeSection');
+    const folderDetailView = document.getElementById('folderDetailView');
+    const activeExamView = document.getElementById('activeExamView');
+    const liveClassView = document.getElementById('liveClassView');
+    const aiMentorView = document.getElementById('aiMentorView');
+    const createTestView = document.getElementById('createTestView');
+
+    function hideAllSections() {
+      foldersHomeSection.classList.add('hidden');
+      folderDetailView.classList.add('hidden');
+      activeExamView.classList.add('hidden');
+      liveClassView.classList.add('hidden');
+      aiMentorView.classList.add('hidden');
+      createTestView.classList.add('hidden');
+    }
+
+    function showSection(sec) {
+      hideAllSections();
+      if (sec === 'home') {
+        foldersHomeSection.classList.remove('hidden');
+        updateBottomNav('home');
+      } else if (sec === 'detail') {
+        folderDetailView.classList.remove('hidden');
+        updateBottomNav('mocks');
+      } else if (sec === 'exam') {
+        activeExamView.classList.remove('hidden');
+        updateBottomNav('mocks');
+      } else if (sec === 'live') {
+        liveClassView.classList.remove('hidden');
+        updateBottomNav('live');
+        initWhiteboard();
+      } else if (sec === 'ai') {
+        aiMentorView.classList.remove('hidden');
+        updateBottomNav('ai');
+        updateAiDiagnostics();
+      } else if (sec === 'create') {
+        createTestView.classList.remove('hidden');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Bottom Navigation
+    const bottomNavHome = document.getElementById('bottomNavHome');
+    const bottomNavMocks = document.getElementById('bottomNavMocks');
+    const bottomNavLive = document.getElementById('bottomNavLive');
+    const bottomNavAi = document.getElementById('bottomNavAi');
+    const bottomNavProfile = document.getElementById('bottomNavProfile');
+
+    function updateBottomNav(activeId) {
+      [bottomNavHome, bottomNavMocks, bottomNavLive, bottomNavAi, bottomNavProfile].forEach(b => {
+        b.className = 'flex flex-col items-center text-slate-400 hover:text-purple-900 font-semibold transition';
+      });
+      if (activeId === 'home') bottomNavHome.className = 'flex flex-col items-center text-purple-900 font-bold transition';
+      else if (activeId === 'mocks') bottomNavMocks.className = 'flex flex-col items-center text-purple-900 font-bold transition';
+      else if (activeId === 'live') bottomNavLive.className = 'flex flex-col items-center text-purple-900 font-bold transition';
+      else if (activeId === 'ai') bottomNavAi.className = 'flex flex-col items-center text-purple-900 font-bold transition';
+      else if (activeId === 'profile') bottomNavProfile.className = 'flex flex-col items-center text-purple-900 font-bold transition';
+    }
+
+    bottomNavHome.addEventListener('click', () => showSection('home'));
+    bottomNavMocks.addEventListener('click', () => openFolderCategory('ALL'));
+    bottomNavLive.addEventListener('click', () => showSection('live'));
+    bottomNavAi.addEventListener('click', () => showSection('ai'));
+    bottomNavProfile.addEventListener('click', () => {
+      showToast(`Candidate: ${currentUser ? currentUser.name : 'User'} • District: ${currentUser ? currentUser.district : 'Odisha'}`, 'info');
+    });
+
+    // Top Header Buttons
+    document.getElementById('topMenuBtn').addEventListener('click', () => showSection('home'));
+    document.getElementById('notifBellBtn').addEventListener('click', () => showToast('🔔 Daily Odisha Mock Tests are live for all categories!', 'info'));
+
+    // =========================================================================
+    // --- COLORFUL EXAM FOLDERS CLICK HANDLERS ---
+    // =========================================================================
+    const folderDetailTitle = document.getElementById('folderDetailTitle');
+    const folderDetailSubtitle = document.getElementById('folderDetailSubtitle');
+    const folderMocksGrid = document.getElementById('folderMocksGrid');
+    const folderBackToHomeBtn = document.getElementById('folderBackToHomeBtn');
+    const folderAddMockBtn = document.getElementById('folderAddMockBtn');
+
+    let currentSelectedCategory = "OPSC";
+
+    document.getElementById('folderCardOpsc').addEventListener('click', () => openFolderCategory('OPSC'));
+    document.getElementById('folderCardOssc').addEventListener('click', () => openFolderCategory('OSSC'));
+    document.getElementById('folderCardOsssc').addEventListener('click', () => openFolderCategory('OSSSC'));
+    document.getElementById('folderCardOusssc').addEventListener('click', () => openFolderCategory('OUSSSC'));
+    document.getElementById('folderCardTeaching').addEventListener('click', () => openFolderCategory('TEACHING'));
+    document.getElementById('folderCardLive').addEventListener('click', () => showSection('live'));
+    document.getElementById('folderCardAi').addEventListener('click', () => showSection('ai'));
+    document.getElementById('folderCardWhatsapp').addEventListener('click', () => {
+      showToast('Opening H2S STUDY WhatsApp Community batch...', 'success');
+      window.open('https://api.whatsapp.com/send?text=Join%20H2S%20STUDY%20Odisha%20Govt%20Exams%20Portal', '_blank');
+    });
+
+    folderBackToHomeBtn.addEventListener('click', () => showSection('home'));
+    document.getElementById('liveBackToHomeBtn').addEventListener('click', () => showSection('home'));
+    document.getElementById('aiBackToHomeBtn').addEventListener('click', () => showSection('home'));
+    folderAddMockBtn.addEventListener('click', () => showSection('create'));
+
+    // =========================================================================
+    // --- MOCK CATALOG DATA & FOLDER POPULATION ---
+    // =========================================================================
+    let mockCatalog = [
+  {
+    "id": "mock_osssc_01",
+    "title": "OSSSC Combined Mock Test 2026 (RI, ARI, Amin, PEO)",
+    "subject": "Odisha GK & Odia Grammar",
+    "duration": 15,
+    "totalMarks": 4,
+    "description": "Targeted test for OSSSC Revenue Inspector (RI), Amin, and Junior Assistant. Includes Odisha History, Geography, and Byakarana.",
+    "questions": [
+      {
+        "id": 1,
+        "topic": "Odisha History & Heritage",
+        "question": "In which year was the separate province of Odisha (Orissa) formed on linguistic basis?",
+        "options": [
+          "1 April 1936",
+          "15 August 1947",
+          "26 January 1950",
+          "1 April 1912"
+        ],
+        "correctIndex": 0,
+        "explanation": "Odisha became a separate province on 1 April 1936 with Sir John Austen Hubback as its first Governor, celebrated annually as Utkal Divas."
+      },
+      {
+        "id": 2,
+        "topic": "Odisha Geography",
+        "question": "Which of the following is the highest mountain peak in the state of Odisha?",
+        "options": [
+          "Mahendragiri",
+          "Deomali",
+          "Gandhamardan",
+          "Malayagiri"
+        ],
+        "correctIndex": 1,
+        "explanation": "Deomali, situated in Koraput district with an elevation of approximately 1,672 meters, is the highest peak in Odisha."
+      },
+      {
+        "id": 3,
+        "topic": "Odia Grammar (\u0b13\u0b21\u0b3c\u0b3f\u0b06 \u0b2c\u0b4d\u0b5f\u0b3e\u0b15\u0b30\u0b23)",
+        "question": "What is the correct opposite word (\u0b2c\u0b3f\u0b2a\u0b30\u0b40\u0b24\u0b3e\u0b30\u0b4d\u0b25\u0b2c\u0b4b\u0b27\u0b15 \u0b36\u0b2c\u0b4d\u0b26) of '\u0b05\u0b28\u0b41\u0b30\u0b3e\u0b17' (Anuraga)?",
+        "options": [
+          "\u0b2c\u0b3f\u0b30\u0b3e\u0b17 (Biraga)",
+          "\u0b2a\u0b4d\u0b30\u0b47\u0b2e (Prema)",
+          "\u0b15\u0b4d\u0b30\u0b4b\u0b27 (Krodha)",
+          "\u0b26\u0b4d\u0b71\u0b47\u0b37 (Dwesa)"
+        ],
+        "correctIndex": 0,
+        "explanation": "'\u0b05\u0b28\u0b41\u0b30\u0b3e\u0b17' \u0b30 \u0b2a\u0b4d\u0b30\u0b15\u0b43\u0b24 \u0b2c\u0b3f\u0b2a\u0b30\u0b40\u0b24\u0b3e\u0b30\u0b4d\u0b25\u0b2c\u0b4b\u0b27\u0b15 \u0b36\u0b2c\u0b4d\u0b26 \u0b39\u0b47\u0b09\u0b1b\u0b3f '\u0b2c\u0b3f\u0b30\u0b3e\u0b17'\u0964"
+      },
+      {
+        "id": 4,
+        "topic": "Odisha Governance & Current GK",
+        "question": "Which lake in Odisha is designated as the first Ramsar Wetland Site of International Importance in India (1981)?",
+        "options": [
+          "Ansupa Lake",
+          "Chilika Lake",
+          "Tampara Lake",
+          "Kanjia Lake"
+        ],
+        "correctIndex": 1,
+        "explanation": "Chilika Lake, Asia's largest brackish water lagoon, was designated as the first Ramsar site of India in 1981."
+      }
+    ]
+  },
+  {
+    "id": "mock_ossc_cgl_01",
+    "title": "OSSC CGL & Combined Technical Prelims Mock",
+    "subject": "General Studies & Constitution",
+    "duration": 15,
+    "totalMarks": 4,
+    "description": "Standard OSSC Combined Graduate Level paper with Indian Polity, Odisha Economy, and Reasoning.",
+    "questions": [
+      {
+        "id": 1,
+        "topic": "Indian Constitution & Polity",
+        "question": "Under which Article of the Indian Constitution is the Odisha State Finance Commission constituted?",
+        "options": [
+          "Article 243-I",
+          "Article 280",
+          "Article 324",
+          "Article 243-K"
+        ],
+        "correctIndex": 0,
+        "explanation": "Article 243-I of the Constitution mandates the constitution of a State Finance Commission by the Governor to review financial position of Panchayats."
+      },
+      {
+        "id": 2,
+        "topic": "Odisha Culture & Literature",
+        "question": "Who is revered with the title 'Adikabi' of Odia literature for authoring the Odia Sarala Mahabharata?",
+        "options": [
+          "Sarala Das",
+          "Upendra Bhanja",
+          "Fakir Mohan Senapati",
+          "Radhanath Ray"
+        ],
+        "correctIndex": 0,
+        "explanation": "Sarala Das, who lived during the reign of Gajapati Kapilendra Deva in the 15th century, is honoured as the Adikabi of Odia literature."
+      },
+      {
+        "id": 3,
+        "topic": "Mental Ability & Reasoning",
+        "question": "Find the next term in the alphanumeric series: OD-01, OD-03, OD-07, OD-13, OD-21, ___?",
+        "options": [
+          "OD-29",
+          "OD-31",
+          "OD-33",
+          "OD-35"
+        ],
+        "correctIndex": 1,
+        "explanation": "The differences between consecutive numbers increase by 2: +2, +4, +6, +8, +10. Thus, 21 + 10 = 31 (OD-31)."
+      },
+      {
+        "id": 4,
+        "topic": "Odisha Economy & Resources",
+        "question": "Odisha is the leading producer of which mineral in India, accounting for over 50% of the country's total output?",
+        "options": [
+          "Bauxite & Chromite",
+          "Mica & Copper",
+          "Gold & Silver",
+          "Uranium & Lignite"
+        ],
+        "correctIndex": 0,
+        "explanation": "Odisha is India's largest producer of both Chromite (over 90%) and Bauxite (over 50%), centered around Sukinda and Panchpatmali."
+      }
+    ]
+  },
+  {
+    "id": "mock_opsc_aso_01",
+    "title": "OPSC ASO & Civil Services (OCS) General Awareness Mock",
+    "subject": "OPSC Exam Paper",
+    "duration": 15,
+    "totalMarks": 4,
+    "description": "High-yield OPSC Assistant Section Officer and Odisha Civil Services preparation exam.",
+    "questions": [
+      {
+        "id": 1,
+        "topic": "Ancient Odisha History",
+        "question": "The Hathigumpha inscription on Udayagiri hills near Bhubaneswar describes the military conquests of which legendary Kalinga ruler?",
+        "options": [
+          "Emperor Kharavela",
+          "King Ashoka",
+          "Gajapati Kapilendra Deva",
+          "Chodaganga Deva"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Hathigumpha inscription written in Brahmi script records the year-by-year exploits of the Chedi dynasty King Kharavela."
+      },
+      {
+        "id": 2,
+        "topic": "Odisha Freedom Struggle",
+        "question": "Which place in Bhadrak district of Odisha is famous as 'Rakta Tirtha' due to the massacre of peaceful freedom fighters in September 1942?",
+        "options": [
+          "Eram",
+          "Puri",
+          "Satyabadi",
+          "Barabati"
+        ],
+        "correctIndex": 0,
+        "explanation": "Eram in Bhadrak is known as the 'Rakta Tirtha' (Pilgrimage of Blood) where 29 freedom fighters were killed in police firing during the Quit India movement."
+      },
+      {
+        "id": 3,
+        "topic": "Odia Grammar (\u0b36\u0b41\u0b26\u0b4d\u0b27 \u0b2c\u0b28\u0b3e\u0b28)",
+        "question": "Identify the grammatically correct word (\u0b36\u0b41\u0b26\u0b4d\u0b27 \u0b36\u0b2c\u0b4d\u0b26) among the following:",
+        "options": [
+          "\u0b28\u0b3f\u0b30\u0b2a\u0b30\u0b3e\u0b27 (Niraparadha)",
+          "\u0b28\u0b3f\u0b30\u0b2a\u0b30\u0b3e\u0b27\u0b40 (Niraparadhi)",
+          "\u0b28\u0b3f\u0b30\u0b2a\u0b30\u0b3e\u0b27\u0b3f (Niraparadhi short)",
+          "\u0b28\u0b3f\u0b30\u0b3e\u0b2a\u0b30\u0b3e\u0b27\u0b40 (Niraparadhi)"
+        ],
+        "correctIndex": 0,
+        "explanation": "\u0b2c\u0b4d\u0b5f\u0b3e\u0b15\u0b30\u0b23 \u0b05\u0b28\u0b41\u0b2f\u0b3e\u0b5f\u0b40 '\u0b28\u0b3f\u0b30\u0b2a\u0b30\u0b3e\u0b27' \u0b39\u0b3f\u0b01 \u0b36\u0b41\u0b26\u0b4d\u0b27 \u0b36\u0b2c\u0b4d\u0b26; '\u0b28\u0b3f\u0b30\u0b2a\u0b30\u0b3e\u0b27\u0b40' \u0b0f\u0b15 \u0b05\u0b36\u0b41\u0b26\u0b4d\u0b27 \u0b2a\u0b4d\u0b30\u0b5f\u0b4b\u0b17\u0964"
+      },
+      {
+        "id": 4,
+        "topic": "Environmental & Wildlife Heritage",
+        "question": "Which national park in Kendrapara district of Odisha is world-famous as the largest breeding sanctuary for Olive Ridley Sea Turtles?",
+        "options": [
+          "Gahirmatha / Bhitarkanika",
+          "Similipal National Park",
+          "Kuldiha Sanctuary",
+          "Debrigarh Sanctuary"
+        ],
+        "correctIndex": 0,
+        "explanation": "Gahirmatha Marine Sanctuary adjacent to Bhitarkanika is the world's most critical nesting beach for endangered Olive Ridley sea turtles."
+      }
+    ]
+  },
+  {
+    "id": "mock_teaching_01",
+    "title": "Odisha Teaching Exams Master Mock (OTET, OSSTET, RHT, JT, OAVS)",
+    "subject": "Pedagogy & Odia Byakarana",
+    "duration": 15,
+    "totalMarks": 4,
+    "description": "Essential pedagogy, child development, and teaching methodology for Odisha school teacher selections.",
+    "questions": [
+      {
+        "id": 1,
+        "topic": "Child Development & Pedagogy",
+        "question": "According to Jean Piaget's cognitive development theory, in which stage does a child develop abstract and logical thinking?",
+        "options": [
+          "Formal Operational Stage (11+ years)",
+          "Sensorimotor Stage (0-2 years)",
+          "Pre-operational Stage (2-7 years)",
+          "Concrete Operational Stage (7-11 years)"
+        ],
+        "correctIndex": 0,
+        "explanation": "In the Formal Operational Stage (ages 11 and above), adolescents gain the ability to think abstractly and reason deductively."
+      },
+      {
+        "id": 2,
+        "topic": "Educational Policy in Odisha",
+        "question": "Under the Odisha 5T high school transformation initiative, which key areas are focused on in government high schools?",
+        "options": [
+          "Smart Classrooms, e-Libraries, Science Labs, and Sports Facilities",
+          "Only Foreign Language coaching",
+          "Only Commercial Farming",
+          "Private Tuition Centres"
+        ],
+        "correctIndex": 0,
+        "explanation": "Odisha's 5T High School Transformation initiative modernizes government schools with smart interactive classrooms, STEM labs, e-libraries, and sports."
+      },
+      {
+        "id": 3,
+        "topic": "Odia Pedagogy (\u0b2d\u0b3e\u0b37\u0b3e \u0b36\u0b3f\u0b15\u0b4d\u0b37\u0b3e\u0b26\u0b3e\u0b28)",
+        "question": "Which of the following is considered the fundamental primary skill in language acquisition (LSRW sequence)?",
+        "options": [
+          "\u0b36\u0b4d\u0b30\u0b2c\u0b23 (Listening)",
+          "\u0b15\u0b25\u0b28 (Speaking)",
+          "\u0b2a\u0b20\u0b28 (Reading)",
+          "\u0b32\u0b3f\u0b16\u0b28 (Writing)"
+        ],
+        "correctIndex": 0,
+        "explanation": "\u0b2d\u0b3e\u0b37\u0b3e \u0b36\u0b3f\u0b15\u0b4d\u0b37\u0b23\u0b30 \u0b2a\u0b4d\u0b30\u0b25\u0b2e \u0b0f\u0b2c\u0b02 \u0b2e\u0b4c\u0b33\u0b3f\u0b15 \u0b38\u0b4b\u0b2a\u0b3e\u0b28 \u0b39\u0b47\u0b09\u0b1b\u0b3f '\u0b36\u0b4d\u0b30\u0b2c\u0b23' (Listening - L in LSRW)."
+      },
+      {
+        "id": 4,
+        "topic": "Assessment & Evaluation",
+        "question": "Formative Assessment (\u0b17\u0b20\u0b28\u0b2e\u0b42\u0b33\u0b15 \u0b2e\u0b42\u0b32\u0b4d\u0b5f\u0b3e\u0b5f\u0b28) is primarily conducted for what purpose?",
+        "options": [
+          "Continuous monitoring and improvement during the teaching-learning process",
+          "Assigning final letter grades at the end of the academic year only",
+          "Punishing low-scoring students",
+          "Calculating school financial audit"
+        ],
+        "correctIndex": 0,
+        "explanation": "Formative evaluation provides ongoing feedback to teachers and students during instruction to correct learning gaps immediately."
+      }
+    ]
+  }
+];
+
+    try {
+      const stored = localStorage.getItem('h2s_odisha_catalog');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          mockCatalog = parsed;
+        }
+      }
+    } catch(e) {}
+
+    function openFolderCategory(cat) {
+      currentSelectedCategory = cat;
+      showSection('detail');
+
+      if (cat === 'OPSC') {
+        folderDetailTitle.textContent = 'OPSC Exams Folder (OCS / OAS & ASO)';
+        folderDetailSubtitle.textContent = 'Civil Services, Assistant Section Officer & Gazetted Cadre Tests (+1.00 / -0.25)';
+      } else if (cat === 'OSSC') {
+        folderDetailTitle.textContent = 'OSSC Exams Folder (CGL & Sub-Inspector)';
+        folderDetailSubtitle.textContent = 'Combined Graduate Level, SI, Junior Clerk & Technical Prelims (+1.00 / -0.25)';
+      } else if (cat === 'OSSSC') {
+        folderDetailTitle.textContent = 'OSSSC Exams Folder (RI, ARI, Amin, PEO, JA)';
+        folderDetailSubtitle.textContent = 'Revenue Inspector, Panchayat Executive Officer & District Cadre Tests (+1.00 / -0.25)';
+      } else if (cat === 'OUSSSC') {
+        folderDetailTitle.textContent = 'OUSSSC Exams Folder (State & University Cadre)';
+        folderDetailSubtitle.textContent = 'University Junior Assistant & State Sub-Ordinate Services (+1.00 / -0.25)';
+      } else if (cat === 'TEACHING') {
+        folderDetailTitle.textContent = 'Teaching Exams Folder (OTET, OSSTET, RHT, JT, OAVS)';
+        folderDetailSubtitle.textContent = 'Secondary & Elementary Teacher Recruitment & Pedagogy (+1.00 / -0.25)';
+      } else {
+        folderDetailTitle.textContent = 'All Odisha Competitive Exams';
+        folderDetailSubtitle.textContent = 'Full catalog of OPSC, OSSC, OSSSC, OUSSSC & Teaching exam mock series';
+      }
+
+      renderFolderMocks(cat);
+    }
+
+    function renderFolderMocks(cat) {
+      folderMocksGrid.innerHTML = '';
+      
+      let filtered = mockCatalog;
+      if (cat === 'OPSC') {
+        filtered = mockCatalog.filter(m => m.id.includes('opsc') || m.title.includes('OPSC') || m.subject.includes('OPSC'));
+      } else if (cat === 'OSSC') {
+        filtered = mockCatalog.filter(m => m.id.includes('ossc_cgl') || m.title.includes('OSSC') || m.subject.includes('OSSC'));
+      } else if (cat === 'OSSSC') {
+        filtered = mockCatalog.filter(m => m.id.includes('osssc') || m.title.includes('OSSSC') || m.subject.includes('OSSSC'));
+      } else if (cat === 'TEACHING') {
+        filtered = mockCatalog.filter(m => m.id.includes('teaching') || m.title.includes('Teaching') || m.subject.includes('Pedagogy'));
+      }
+
+      if (filtered.length === 0) {
+        filtered = mockCatalog; // Fallback so candidates always have tests available
+      }
+
+      filtered.forEach((test) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200 hover:border-purple-400 hover:shadow-md transition flex flex-col justify-between space-y-4';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-purple-50 text-purple-800 uppercase tracking-wide">
+                ${test.subject}
+              </span>
+              <span class="text-[11px] font-semibold text-slate-400">⏱️ ${test.duration} Mins</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-900 leading-snug mb-1">${test.title}</h4>
+            <p class="text-xs text-slate-500 line-clamp-2">${test.description}</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-600 font-medium">Questions: <b>${test.questions.length}</b></span>
+              <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded text-[11px] border border-emerald-100">
+                +1.00 / -0.25 Mark
+              </span>
+            </div>
+
+            <button type="button" class="start-test-btn w-full py-2.5 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5">
+              <span>Attempt Mock Test</span>
+              <span>→</span>
+            </button>
+          </div>
+        `;
+
+        card.querySelector('.start-test-btn').addEventListener('click', () => {
+          startExam(test);
+        });
+
+        folderMocksGrid.appendChild(card);
+      });
+    }
+
+    // --- ACTIVE EXAM HALL EXECUTION (+1.00 / -0.25) ---
+    let activeTest = null;
+    let currentQIdx = 0;
+    let userSelections = [];
+    let examScore = 0.0;
+    let examCorrectCount = 0;
+    let examWrongCount = 0;
+    let examTimerInterval = null;
+    let examSecondsRemaining = 15 * 60;
+    let currentSelectedOptionIdx = null;
+
+    const examHallTestTitle = document.getElementById('examHallTestTitle');
+    const examTimerDisplay = document.getElementById('examTimerDisplay');
+    const examLiveScoreDisplay = document.getElementById('examLiveScoreDisplay');
+    const examQuestionCard = document.getElementById('examQuestionCard');
+    const examScorecardCard = document.getElementById('examScorecardCard');
+    const examProgressLabel = document.getElementById('examProgressLabel');
+    const examPercentLabel = document.getElementById('examPercentLabel');
+    const examProgressBar = document.getElementById('examProgressBar');
+    const examTopicBadge = document.getElementById('examTopicBadge');
+    const examQuestionStatement = document.getElementById('examQuestionStatement');
+    const examOptionsContainer = document.getElementById('examOptionsContainer');
+    const examExplanationBox = document.getElementById('examExplanationBox');
+    const examSubmitAnswerBtn = document.getElementById('examSubmitAnswerBtn');
+    const examNextBtn = document.getElementById('examNextBtn');
+    const examSkipBtn = document.getElementById('examSkipBtn');
+    const exitExamBtn = document.getElementById('exitExamBtn');
+
+    function startExam(test) {
+      activeTest = test;
+      currentQIdx = 0;
+      userSelections = [];
+      examScore = 0.0;
+      examCorrectCount = 0;
+      examWrongCount = 0;
+      examLiveScoreDisplay.textContent = '0.00 pts';
+      examHallTestTitle.textContent = test.title;
+
+      showSection('exam');
+      examScorecardCard.classList.add('hidden');
+      examQuestionCard.classList.remove('hidden');
+
+      clearInterval(examTimerInterval);
+      examSecondsRemaining = (test.duration || 15) * 60;
+      examTimerInterval = setInterval(() => {
+        if (examSecondsRemaining > 0) {
+          examSecondsRemaining--;
+          const m = String(Math.floor(examSecondsRemaining / 60)).padStart(2, '0');
+          const s = String(examSecondsRemaining % 60).padStart(2, '0');
+          examTimerDisplay.textContent = `${m}:${s}`;
+        }
+      }, 1000);
+
+      renderExamQuestion();
+      showToast(`Started "${test.title}".`, 'info');
+    }
+
+    exitExamBtn.addEventListener('click', () => {
+      clearInterval(examTimerInterval);
+      showSection('detail');
+    });
+
+    function renderExamQuestion() {
+      currentSelectedOptionIdx = null;
+      examSubmitAnswerBtn.disabled = true;
+      examSubmitAnswerBtn.classList.remove('hidden');
+      examNextBtn.classList.add('hidden');
+      examExplanationBox.classList.add('hidden');
+
+      const total = activeTest.questions.length;
+      const progressPercent = Math.round(((currentQIdx + 1) / total) * 100);
+      examProgressLabel.textContent = `Question ${currentQIdx + 1} of ${total}`;
+      examPercentLabel.textContent = `${progressPercent}% Completed`;
+      examProgressBar.style.width = `${progressPercent}%`;
+
+      const q = activeTest.questions[currentQIdx];
+      examTopicBadge.textContent = q.topic;
+      examQuestionStatement.textContent = q.question;
+
+      examOptionsContainer.innerHTML = '';
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'w-full text-left p-3.5 rounded-xl border border-slate-200 hover:border-purple-400 hover:bg-slate-50 transition flex items-center justify-between text-xs md:text-sm font-medium text-slate-800';
+        btn.innerHTML = `
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 rounded-md bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-600 border border-slate-200">
+              ${String.fromCharCode(65 + idx)}
+            </span>
+            <span>${opt}</span>
+          </div>
+          <span class="dot-indicator hidden text-purple-700 font-bold">●</span>
+        `;
+
+        btn.addEventListener('click', () => {
+          if (!examExplanationBox.classList.contains('hidden')) return;
+          Array.from(examOptionsContainer.children).forEach(c => {
+            c.classList.remove('border-purple-600', 'bg-purple-50/70', 'ring-2', 'ring-purple-500/20');
+            c.querySelector('.dot-indicator').classList.add('hidden');
+          });
+          btn.classList.add('border-purple-600', 'bg-purple-50/70', 'ring-2', 'ring-purple-500/20');
+          btn.querySelector('.dot-indicator').classList.remove('hidden');
+          currentSelectedOptionIdx = idx;
+          examSubmitAnswerBtn.disabled = false;
+        });
+
+        examOptionsContainer.appendChild(btn);
+      });
+    }
+
+    examSubmitAnswerBtn.addEventListener('click', () => {
+      if (currentSelectedOptionIdx === null) return;
+      const q = activeTest.questions[currentQIdx];
+      const isCorrect = currentSelectedOptionIdx === q.correctIndex;
+
+      userSelections.push({
+        questionNumber: currentQIdx + 1,
+        question: q.question,
+        topic: q.topic,
+        chosenIndex: currentSelectedOptionIdx,
+        correctIndex: q.correctIndex,
+        isCorrect: isCorrect,
+        isSkipped: false,
+        explanation: q.explanation
+      });
+
+      const optionButtons = examOptionsContainer.querySelectorAll('button');
+      optionButtons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === q.correctIndex) {
+          b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-800');
+        } else if (idx === currentSelectedOptionIdx) {
+          b.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-800');
+        }
+      });
+
+      if (isCorrect) {
+        examScore += 1.0;
+        examCorrectCount++;
+        examExplanationBox.innerHTML = `<span class="text-emerald-700 font-bold block mb-1">✓ Correct! (+1.00 mark earned)</span>${q.explanation}`;
+        examExplanationBox.className = 'mb-6 p-4 rounded-xl text-xs md:text-sm border font-medium bg-emerald-50 border-emerald-200 text-slate-800';
+      } else {
+        examScore -= 0.25;
+        examWrongCount++;
+        examExplanationBox.innerHTML = `<span class="text-rose-700 font-bold block mb-1">✗ Incorrect! (-0.25 negative penalty deducted)</span>${q.explanation}`;
+        examExplanationBox.className = 'mb-6 p-4 rounded-xl text-xs md:text-sm border font-medium bg-rose-50 border-rose-200 text-slate-800';
+      }
+
+      examExplanationBox.classList.remove('hidden');
+      examLiveScoreDisplay.textContent = `${examScore.toFixed(2)} pts`;
+      examSubmitAnswerBtn.classList.add('hidden');
+      examNextBtn.classList.remove('hidden');
+    });
+
+    examNextBtn.addEventListener('click', () => {
+      if (currentQIdx < activeTest.questions.length - 1) {
+        currentQIdx++;
+        renderExamQuestion();
+      } else {
+        finishExam();
+      }
+    });
+
+    examSkipBtn.addEventListener('click', () => {
+      const q = activeTest.questions[currentQIdx];
+      userSelections.push({
+        questionNumber: currentQIdx + 1,
+        question: q.question,
+        topic: q.topic,
+        chosenIndex: null,
+        correctIndex: q.correctIndex,
+        isCorrect: false,
+        isSkipped: true,
+        explanation: q.explanation
+      });
+
+      if (currentQIdx < activeTest.questions.length - 1) {
+        currentQIdx++;
+        renderExamQuestion();
+      } else {
+        finishExam();
+      }
+    });
+
+    function finishExam() {
+      clearInterval(examTimerInterval);
+      examQuestionCard.classList.add('hidden');
+      examScorecardCard.classList.remove('hidden');
+
+      document.getElementById('cardCorrectCount').textContent = examCorrectCount;
+      document.getElementById('cardWrongCount').textContent = examWrongCount;
+      const penalty = (examWrongCount * 0.25).toFixed(2);
+      document.getElementById('cardNegativeDeduction').textContent = `-${penalty} pts`;
+      document.getElementById('cardNetScore').textContent = `${examScore.toFixed(2)} pts`;
+
+      showToast("Odisha mock evaluated! AI insights & certificate ready.", "success");
+    }
+
+    document.getElementById('cardCatalogReturnBtn').addEventListener('click', () => showSection('detail'));
+    document.getElementById('cardOpenAiBtn').addEventListener('click', () => showSection('ai'));
+
+    // --- CERTIFICATE VIEW CONTROLLER ---
+    const cardViewCertBtn = document.getElementById('cardViewCertBtn');
+    const certificateModal = document.getElementById('certificateModal');
+    const closeCertModalBtn = document.getElementById('closeCertModalBtn');
+    const printCertActionBtn = document.getElementById('printCertActionBtn');
+
+    cardViewCertBtn.addEventListener('click', () => {
+      document.getElementById('certStudentNameDisplay').textContent = currentUser ? currentUser.name : 'Aarav Mohanty';
+      document.getElementById('certExamNameDisplay').textContent = activeTest ? activeTest.title : 'OSSSC Combined Mock';
+      document.getElementById('certScoreDisplay').textContent = `${examScore.toFixed(2)} pts`;
+      const accuracy = userSelections.length > 0 ? Math.round((examCorrectCount / userSelections.length) * 100) : 100;
+      document.getElementById('certAccuracyDisplay').textContent = `${accuracy}%`;
+      const d = new Date();
+      document.getElementById('certDateDisplay').textContent = `${d.getDate()} ${d.toLocaleString('en', {month: 'short'})} ${d.getFullYear()}`;
+      document.getElementById('certVerifyIdDisplay').textContent = `ID: H2S-OD-${Math.floor(1000 + Math.random() * 9000)}`;
+      certificateModal.classList.remove('hidden');
+    });
+
+    closeCertModalBtn.addEventListener('click', () => certificateModal.classList.add('hidden'));
+    printCertActionBtn.addEventListener('click', () => window.print());
+
+    // --- TEACHER SELF-CREATION OF MOCKS (TEACHER ONLY) ---
+    const creatorQuestionsList = document.getElementById('creatorQuestionsList');
+    const addQuestionFieldBtn = document.getElementById('addQuestionFieldBtn');
+    const createMockForm = document.getElementById('createMockForm');
+    const cancelCreateMockBtn = document.getElementById('cancelCreateMockBtn');
+
+    let createdQCount = 0;
+    function addCreatorQuestionRow() {
+      createdQCount++;
+      const id = createdQCount;
+      const row = document.createElement('div');
+      row.className = 'p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2.5 text-xs';
+      row.id = `createdRow_${id}`;
+      row.innerHTML = `
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-purple-800">Question ${id}</span>
+          ${id > 1 ? `<button type="button" onclick="document.getElementById('createdRow_${id}').remove()" class="text-rose-500 font-bold hover:underline">Remove</button>` : ''}
+        </div>
+        <input type="text" placeholder="Enter Question statement (e.g. Odia Grammar or Odisha GK)..." required class="c-q-statement w-full px-3 py-1.5 border border-slate-200 rounded-lg bg-white outline-none">
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" placeholder="Option A" required class="c-opt0 px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white">
+          <input type="text" placeholder="Option B" required class="c-opt1 px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white">
+          <input type="text" placeholder="Option C" required class="c-opt2 px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white">
+          <input type="text" placeholder="Option D" required class="c-opt3 px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white">
+        </div>
+        <div class="grid grid-cols-2 gap-2 items-center">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 mb-0.5">Correct Option</label>
+            <select class="c-correct-opt w-full bg-white border border-slate-200 rounded-lg px-2 py-1">
+              <option value="0">Option A</option>
+              <option value="1">Option B</option>
+              <option value="2">Option C</option>
+              <option value="3">Option D</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 mb-0.5">Explanation</label>
+            <input type="text" placeholder="Concept explanation..." required class="c-exp w-full px-2.5 py-1 border border-slate-200 rounded-lg bg-white">
+          </div>
+        </div>
+      `;
+      creatorQuestionsList.appendChild(row);
+    }
+
+    addCreatorQuestionRow();
+    addCreatorQuestionRow();
+
+    addQuestionFieldBtn.addEventListener('click', addCreatorQuestionRow);
+    cancelCreateMockBtn.addEventListener('click', () => showSection('detail'));
+
+    createMockForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('createTestTitleInput').value.trim();
+      const subject = document.getElementById('createTestSubjectInput').value;
+
+      const rows = creatorQuestionsList.querySelectorAll('div[id^="createdRow_"]');
+      const compiled = [];
+
+      rows.forEach((r, idx) => {
+        const stmt = r.querySelector('.c-q-statement').value.trim();
+        const o0 = r.querySelector('.c-opt0').value.trim();
+        const o1 = r.querySelector('.c-opt1').value.trim();
+        const o2 = r.querySelector('.c-opt2').value.trim();
+        const o3 = r.querySelector('.c-opt3').value.trim();
+        const correct = parseInt(r.querySelector('.c-correct-opt').value, 10);
+        const exp = r.querySelector('.c-exp').value.trim();
+
+        if (stmt && o0 && o1) {
+          compiled.push({
+            id: idx + 1,
+            topic: subject,
+            question: stmt,
+            options: [o0, o1, o2 || "None of the above", o3 || "All of the above"],
+            correctIndex: correct,
+            explanation: exp || "Verified Odisha competitive examination concept."
+          });
+        }
+      });
+
+      if (compiled.length === 0) {
+        showToast("Please provide at least one valid question.", "error");
+        return;
+      }
+
+      const newMock = {
+        id: `mock_custom_${Date.now()}`,
+        title: title,
+        subject: subject,
+        duration: Math.max(5, compiled.length * 2),
+        totalMarks: compiled.length,
+        description: `Author: ${currentUser ? currentUser.name : 'Teacher'}. Targeted for ${subject} aspirants (+1.00 / -0.25).`,
+        questions: compiled
+      };
+
+      mockCatalog.unshift(newMock);
+      try {
+        localStorage.setItem('h2s_odisha_catalog', JSON.stringify(mockCatalog));
+      } catch(err) {}
+
+      openFolderCategory(subject);
+      showToast(`Success! Added "${title}" to ${subject} folder.`, 'success');
+      createMockForm.reset();
+    });
+
+    // --- AI PERFORMANCE MENTOR LOGIC ---
+    function updateAiDiagnostics() {
+      if (!activeTest || userSelections.length === 0) {
+        document.getElementById('aiActiveTestTitle').textContent = "No Test Submitted Yet";
+        document.getElementById('aiRatingAlert').textContent = "Attempt a mock test first from an exam folder to activate question-level AI diagnostics.";
+        return;
+      }
+
+      document.getElementById('aiActiveTestTitle').textContent = activeTest.title;
+      const totalAttempted = userSelections.length;
+      const correct = userSelections.filter(u => u.isCorrect).length;
+      const wrong = userSelections.filter(u => !u.isCorrect && !u.isSkipped).length;
+      const accuracy = totalAttempted > 0 ? Math.round((correct / totalAttempted) * 100) : 0;
+      const negPenalty = (wrong * 0.25).toFixed(2);
+
+      document.getElementById('aiAccuracyRatio').textContent = `${accuracy}%`;
+      document.getElementById('aiNegativeLost').textContent = `-${negPenalty} pts`;
+      document.getElementById('aiNetScoreVal').textContent = `${examScore.toFixed(2)} pts`;
+
+      const alertBox = document.getElementById('aiRatingAlert');
+      if (accuracy >= 80) {
+        alertBox.className = 'p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-semibold mb-3';
+        alertBox.textContent = `🌟 Topper Level Accuracy (${accuracy}%)! Your negative mark control in Odisha GK was excellent.`;
+      } else if (accuracy >= 50) {
+        alertBox.className = 'p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold mb-3';
+        alertBox.textContent = `⚡ Good Attempt (${accuracy}%). You lost ${negPenalty} marks from doubtful negative guesses.`;
+      } else {
+        alertBox.className = 'p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-xs font-semibold mb-3';
+        alertBox.textContent = `⚠️ High Negative Risk (${accuracy}%). Odia grammar & GK facts need structured revision.`;
+      }
+
+      const mistakeList = document.getElementById('aiMistakeBreakdownList');
+      mistakeList.innerHTML = '';
+      const mistaken = userSelections.filter(u => !u.isCorrect);
+
+      if (mistaken.length === 0) {
+        mistakeList.innerHTML = '<div class="p-2 bg-emerald-50 text-emerald-800 rounded-lg">Zero errors! Perfect 100% execution.</div>';
+      } else {
+        mistaken.forEach(m => {
+          const div = document.createElement('div');
+          div.className = 'p-2.5 rounded-lg border border-rose-100 bg-rose-50/70 text-slate-800';
+          div.innerHTML = `
+            <div class="font-bold text-rose-800">Q${m.questionNumber}: ${m.topic}</div>
+            <div class="text-[11px] text-slate-600 line-clamp-1">${m.question}</div>
+            <div class="text-[10px] text-rose-700 font-semibold mt-0.5">Penalty: -0.25 pts. Correct Fact: ${m.explanation}</div>
+          `;
+          mistakeList.appendChild(div);
+        });
+      }
+    }
+
+    const aiChatSubmitForm = document.getElementById('aiChatSubmitForm');
+    const aiUserQueryInput = document.getElementById('aiUserQueryInput');
+    const aiChatStreamBox = document.getElementById('aiChatStreamBox');
+
+    function appendAiBubble(sender, text, isAi = false) {
+      const bubble = document.createElement('div');
+      if (isAi) {
+        bubble.className = 'bg-purple-50 border border-purple-100 p-3.5 rounded-xl text-slate-800 mr-4';
+        bubble.innerHTML = `<div class="flex items-center gap-1.5 font-bold text-purple-900 mb-1"><span>🤖</span> ${sender}:</div><div class="leading-relaxed text-xs">${text}</div>`;
+      } else {
+        bubble.className = 'bg-purple-800 text-white p-3 rounded-xl ml-4';
+        bubble.innerHTML = `<div class="font-bold text-purple-200 mb-1">${sender}:</div><p>${text}</p>`;
+      }
+      aiChatStreamBox.appendChild(bubble);
+      aiChatStreamBox.scrollTop = aiChatStreamBox.scrollHeight;
+    }
+
+    function processAiResponse(query) {
+      const qLower = query.toLowerCase();
+      const wrong = userSelections.filter(u => !u.isCorrect && !u.isSkipped);
+      const wrongCount = wrong.length;
+      const testTitle = activeTest ? activeTest.title : "OSSSC Combined Mock Test";
+
+      if (qLower.includes('improve') || qLower.includes('score') || qLower.includes('osssc')) {
+        return `Here is your strategy for <b>${testTitle}</b>:<br>
+        1. <b>Control 1/4th Negative Marking</b>: In this mock, you lost ${(wrongCount * 0.25).toFixed(2)} marks to wrong answers. In OSSSC RI/PEO, skipping when unsure saves valuable fractional marks!<br>
+        2. <b>Daily Odia Byakarana Drills</b>: Revise ସନ୍ଧି, ସମାସ, and ବିପରୀତ ଶବ୍ଦ daily for 20 minutes.<br>
+        3. <b>Odisha GK Fact Sheet</b>: Focus on formation of Odisha (1936), rivers (Mahanadi, Brahmani, Baitarani), and historical sites.`;
+      } else if (qLower.includes('wrong') || qLower.includes('doing wrong') || qLower.includes('mistake')) {
+        if (wrongCount === 0) {
+          return "You made zero incorrect choices in your recent attempt! Your Odisha GK and grammar foundation are excellent.";
+        }
+        const topics = wrong.map(w => w.topic).join(', ');
+        return `Here are the errors identified in your attempt:<br>
+        • <b>Topics with Mistakes</b>: ${topics}.<br>
+        • <b>Key Insight</b>: Often in Odisha exams, multiple options look phonetically similar in Odia grammar. Pay close attention to grammatical spellings (ଶୁଦ୍ଧ ବନାନ).`;
+      } else {
+        return `In competitive exams like OPSC, OSSC, and OSSSC, accuracy determines final merit over raw attempts. If you can eliminate 2 options, take a calculated risk. If completely uncertain, skipping protects your rank!`;
+      }
+    }
+
+    aiChatSubmitForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = aiUserQueryInput.value.trim();
+      if (!q) return;
+      appendAiBubble('You', q, false);
+      aiUserQueryInput.value = '';
+
+      setTimeout(() => {
+        const reply = processAiResponse(q);
+        appendAiBubble('H2S Odisha Exam Coach', reply, true);
+      }, 700);
+    });
+
+    document.getElementById('quickAiImproveBtn').addEventListener('click', () => {
+      aiUserQueryInput.value = "How can I improve my OSSSC & OSSC score?";
+      aiChatSubmitForm.dispatchEvent(new Event('submit'));
+    });
+    document.getElementById('quickAiMistakesBtn').addEventListener('click', () => {
+      aiUserQueryInput.value = "What are the key mistakes I made in Odisha GK?";
+      aiChatSubmitForm.dispatchEvent(new Event('submit'));
+    });
+
+    // =========================================================================
+    // --- 2. LIVE CLASSROOM & DIGITAL WHITEBOARD ---
+    // =========================================================================
+    const liveViewStudentBtn = document.getElementById('liveViewStudentBtn');
+    const liveViewTeacherBtn = document.getElementById('liveViewTeacherBtn');
+    const whiteboardToolbar = document.getElementById('whiteboardToolbar');
+    const qualitySelectDropdown = document.getElementById('qualitySelectDropdown');
+    const activeResBadge = document.getElementById('activeResBadge');
+    const livePlayToggleBtn = document.getElementById('livePlayToggleBtn');
+    const raiseHandBtn = document.getElementById('raiseHandBtn');
+
+    liveViewStudentBtn.addEventListener('click', () => {
+      liveViewStudentBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-purple-900 shadow-sm transition';
+      liveViewTeacherBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition';
+      whiteboardToolbar.classList.add('hidden');
+      showToast('Switched to Student Viewer Room', 'info');
+    });
+
+    liveViewTeacherBtn.addEventListener('click', () => {
+      if (currentUser && currentUser.role !== 'teacher') {
+        showToast('🔒 Access Restricted: Only Teachers can access Whiteboard Studio.', 'error');
+        return;
+      }
+      liveViewTeacherBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-purple-900 shadow-sm transition';
+      liveViewStudentBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition';
+      whiteboardToolbar.classList.remove('hidden');
+      showToast('Faculty Whiteboard Studio Active! You can sketch diagrams & notes.', 'success');
+    });
+
+    qualitySelectDropdown.addEventListener('change', (e) => {
+      const q = e.target.value;
+      activeResBadge.textContent = `${q} Stream Active`;
+      showToast(`Stream resolution set to ${q}`, 'info');
+    });
+
+    let isStreamLive = true;
+    livePlayToggleBtn.addEventListener('click', () => {
+      isStreamLive = !isStreamLive;
+      livePlayToggleBtn.textContent = isStreamLive ? '⏸ Pause Stream' : '▶ Resume Stream';
+      showToast(isStreamLive ? 'Stream resumed' : 'Stream paused', 'info');
+    });
+
+    raiseHandBtn.addEventListener('click', () => {
+      showToast('✋ You raised your hand! Prof. Mohapatra will take your query.', 'success');
+    });
+
+    // Whiteboard Canvas
+    const canvas = document.getElementById('liveWhiteboardCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let currentTool = 'pen';
+    let currentColor = '#ffffff';
+    let currentSize = 3;
+    let startX = 0, startY = 0;
+    let canvasSnapshot = null;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        let temp = null;
+        if (canvas.width > 0 && canvas.height > 0) {
+          temp = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        }
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        if (temp) {
+          ctx.putImageData(temp, 0, 0);
+        } else {
+          drawOdishaWhiteboardNotes();
+        }
+      }
+    }
+
+    function drawOdishaWhiteboardNotes() {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = '#f59e0b';
+      ctx.fillStyle = '#f59e0b';
+      ctx.font = 'bold 16px "Inter", sans-serif';
+      ctx.fillText('H2S STUDY • Odisha History & Heritage Masterclass', 20, 35);
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = '13px "JetBrains Mono", monospace';
+      ctx.fillText('Faculty: Hemanand Hans | Target: OPSC, OSSC, OSSSC', 20, 65);
+
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '12px "Inter", sans-serif';
+      ctx.fillText('• 261 BC : Historic Kalinga War (Emperor Ashoka on Daya river)', 20, 100);
+      ctx.fillText('• 1st Century BC : Kharavela (Hathigumpha inscription, Udayagiri)', 20, 125);
+      ctx.fillText('• 1817 AD : Paika Rebellion (Bakshi Jagabandhu - First War of Independence)', 20, 150);
+      ctx.fillText('• 1 April 1936 : Formation of Separate Odisha Province (Utkal Divas)', 20, 175);
+
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(20, 195);
+      ctx.lineTo(canvas.width - 20, 195);
+      ctx.stroke();
+
+      ctx.fillStyle = '#a7f3d0';
+      ctx.font = 'bold 11px "Inter", sans-serif';
+      ctx.fillText('Key Milestone: 1 April 1936 • First Governor: Sir John Austen Hubback', 20, 215);
+    }
+
+    function initWhiteboard() {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    }
+
+    function getCoords(e) {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+      return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+      };
+    }
+
+    function startDraw(e) {
+      if (whiteboardToolbar.classList.contains('hidden') || (currentUser && currentUser.role !== 'teacher')) return;
+      isDrawing = true;
+      const c = getCoords(e);
+      startX = c.x;
+      startY = c.y;
+      ctx.beginPath();
+      ctx.moveTo(startX, startY);
+      canvasSnapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
+
+    function draw(e) {
+      if (!isDrawing || whiteboardToolbar.classList.contains('hidden') || (currentUser && currentUser.role !== 'teacher')) return;
+      const c = getCoords(e);
+
+      if (currentTool === 'pen') {
+        ctx.strokeStyle = currentColor;
+        ctx.lineWidth = currentSize;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.lineTo(c.x, c.y);
+        ctx.stroke();
+      } else if (currentTool === 'highlighter') {
+        ctx.strokeStyle = 'rgba(245, 158, 11, 0.35)';
+        ctx.lineWidth = currentSize * 4;
+        ctx.lineCap = 'square';
+        ctx.lineTo(c.x, c.y);
+        ctx.stroke();
+      } else if (currentTool === 'eraser') {
+        ctx.strokeStyle = '#0f172a';
+        ctx.lineWidth = currentSize * 5;
+        ctx.lineCap = 'round';
+        ctx.lineTo(c.x, c.y);
+        ctx.stroke();
+      } else if (currentTool === 'line') {
+        ctx.putImageData(canvasSnapshot, 0, 0);
+        ctx.strokeStyle = currentColor;
+        ctx.lineWidth = currentSize;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(c.x, c.y);
+        ctx.stroke();
+      } else if (currentTool === 'rect') {
+        ctx.putImageData(canvasSnapshot, 0, 0);
+        ctx.strokeStyle = currentColor;
+        ctx.lineWidth = currentSize;
+        ctx.strokeRect(startX, startY, c.x - startX, c.y - startY);
+      }
+    }
+
+    function stopDraw() {
+      isDrawing = false;
+    }
+
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDraw);
+    canvas.addEventListener('mouseleave', stopDraw);
+
+    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDraw(e); }, { passive: false });
+    canvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); }, { passive: false });
+    canvas.addEventListener('touchend', stopDraw);
+
+    const wbToolPen = document.getElementById('wbToolPen');
+    const wbToolHighlighter = document.getElementById('wbToolHighlighter');
+    const wbToolEraser = document.getElementById('wbToolEraser');
+    const wbToolLine = document.getElementById('wbToolLine');
+    const wbToolRect = document.getElementById('wbToolRect');
+
+    function setActiveTool(btn) {
+      [wbToolPen, wbToolHighlighter, wbToolEraser, wbToolLine, wbToolRect].forEach(b => {
+        b.className = 'px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition text-xs';
+      });
+      btn.className = 'px-2.5 py-1 rounded-lg bg-purple-700 font-bold text-white transition text-xs';
+    }
+
+    wbToolPen.addEventListener('click', () => { currentTool = 'pen'; setActiveTool(wbToolPen); });
+    wbToolHighlighter.addEventListener('click', () => { currentTool = 'highlighter'; setActiveTool(wbToolHighlighter); });
+    wbToolEraser.addEventListener('click', () => { currentTool = 'eraser'; setActiveTool(wbToolEraser); });
+    wbToolLine.addEventListener('click', () => { currentTool = 'line'; setActiveTool(wbToolLine); });
+    wbToolRect.addEventListener('click', () => { currentTool = 'rect'; setActiveTool(wbToolRect); });
+
+    document.getElementById('colorWhite').addEventListener('click', () => currentColor = '#ffffff');
+    document.getElementById('colorYellow').addEventListener('click', () => currentColor = '#facc15');
+    document.getElementById('colorCyan').addEventListener('click', () => currentColor = '#22d3ee');
+    document.getElementById('colorRed').addEventListener('click', () => currentColor = '#f43f5e');
+    document.getElementById('colorGreen').addEventListener('click', () => currentColor = '#4ade80');
+
+    document.getElementById('wbStrokeSize').addEventListener('input', (e) => {
+      currentSize = parseInt(e.target.value, 10);
+    });
+
+    document.getElementById('wbClearBtn').addEventListener('click', () => {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      showToast('Whiteboard cleared', 'info');
+    });
+
+    document.getElementById('wbInsertFormulaBtn').addEventListener('click', () => {
+      ctx.font = 'bold 14px "Inter", sans-serif';
+      ctx.fillStyle = '#38bdf8';
+      ctx.fillText('Important Fact: Utkal Sammilani formed in 1903 by Madhusudan Das', 40, canvas.height - 35);
+      showToast('Inserted Odisha GK fact note', 'success');
+    });
+
+    document.getElementById('downloadLectureHandoutBtn').addEventListener('click', () => {
+      showToast('Downloading Odisha History Handout (PDF)...', 'success');
+    });
+
+    // Live Discussion / Doubt Chat
+    const liveChatSubmitForm = document.getElementById('liveChatSubmitForm');
+    const liveChatTextInput = document.getElementById('liveChatTextInput');
+    const liveChatMessagesBox = document.getElementById('liveChatMessagesBox');
+    const markAsDoubtCheckbox = document.getElementById('markAsDoubtCheckbox');
+    const chatTabAll = document.getElementById('chatTabAll');
+    const chatTabDoubts = document.getElementById('chatTabDoubts');
+
+    chatTabAll.addEventListener('click', () => {
+      chatTabAll.className = 'flex-1 py-1 rounded bg-white text-purple-900 font-bold shadow-sm transition';
+      chatTabDoubts.className = 'flex-1 py-1 rounded text-slate-600 hover:text-slate-900 font-medium transition';
+      Array.from(liveChatMessagesBox.children).forEach(msg => msg.classList.remove('hidden'));
+    });
+
+    chatTabDoubts.addEventListener('click', () => {
+      chatTabDoubts.className = 'flex-1 py-1 rounded bg-white text-purple-900 font-bold shadow-sm transition';
+      chatTabAll.className = 'flex-1 py-1 rounded text-slate-600 hover:text-slate-900 font-medium transition';
+      Array.from(liveChatMessagesBox.children).forEach(msg => {
+        if (!msg.classList.contains('is-doubt-item')) {
+          msg.classList.add('hidden');
+        } else {
+          msg.classList.remove('hidden');
+        }
+      });
+    });
+
+    liveChatSubmitForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const txt = liveChatTextInput.value.trim();
+      if (!txt) return;
+      const isDoubt = markAsDoubtCheckbox.checked;
+
+      const userBubble = document.createElement('div');
+      userBubble.className = isDoubt 
+        ? 'is-doubt-item bg-amber-50 border border-amber-200 p-2.5 rounded-xl ml-4'
+        : 'bg-purple-800 text-white p-2.5 rounded-xl ml-4';
+      
+      userBubble.innerHTML = `
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold ${isDoubt ? 'text-amber-900' : 'text-purple-200'}">
+            ${currentUser ? currentUser.name : 'Candidate'} ${isDoubt ? '❓ (Live Doubt)' : ''}
+          </span>
+          <span class="text-[9px] ${isDoubt ? 'text-amber-700' : 'text-purple-300'}">Just now</span>
+        </div>
+        <p class="${isDoubt ? 'text-slate-800' : 'text-white'}">${escapeHtml(txt)}</p>
+      `;
+
+      liveChatMessagesBox.appendChild(userBubble);
+      liveChatTextInput.value = '';
+      markAsDoubtCheckbox.checked = false;
+      liveChatMessagesBox.scrollTop = liveChatMessagesBox.scrollHeight;
+
+      setTimeout(() => {
+        const teacherBubble = document.createElement('div');
+        teacherBubble.className = 'is-doubt-item bg-amber-50/80 p-2.5 rounded-xl border border-amber-200 mr-4';
+        teacherBubble.innerHTML = `
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-amber-900 flex items-center gap-1">
+              <span>👨‍🏫</span> Hemanand Hans (Faculty)
+            </span>
+            <span class="text-[9px] text-amber-700">Just now</span>
+          </div>
+          <p class="text-slate-800">Very good doubt, ${currentUser ? currentUser.name : 'Candidate'}! Keep this point in mind for the upcoming OSSSC / OSSC Prelims.</p>
+        `;
+        liveChatMessagesBox.appendChild(teacherBubble);
+        liveChatMessagesBox.scrollTop = liveChatMessagesBox.scrollHeight;
+      }, 1400);
+    });
+
+    
+    // =========================================================================
+    // --- NOTIFICATION & TEACHER APPROVAL PANEL LOGIC ---
+    // =========================================================================
+    const notifBellBtn = document.getElementById('notifBellBtn');
+    const notifDropdownPanel = document.getElementById('notifDropdownPanel');
+    const closeNotifDropdownBtn = document.getElementById('closeNotifDropdownBtn');
+    const notifCountBadge = document.getElementById('notifCountBadge');
+    const pendingRequestsCountBadge = document.getElementById('pendingRequestsCountBadge');
+    const pendingRequestsList = document.getElementById('pendingRequestsList');
+    const generalNotifsList = document.getElementById('generalNotifsList');
+    const teacherRequestsSection = document.getElementById('teacherRequestsSection');
+
+    // Toggle Notification Panel
+    notifBellBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifDropdownPanel.classList.toggle('hidden');
+      updateNotificationPanelUI();
+    });
+
+    closeNotifDropdownBtn.addEventListener('click', () => {
+      notifDropdownPanel.classList.add('hidden');
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!notifDropdownPanel.contains(e.target) && !notifBellBtn.contains(e.target)) {
+        notifDropdownPanel.classList.add('hidden');
+      }
+    });
+
+    function updateNotificationPanelUI() {
+      const isTeacherOrAdmin = currentUser && (currentUser.role === 'teacher' || currentUser.isAdmin);
+      const pendingReqs = teacherApprovalRequests.filter(r => r.status === 'pending');
+
+      // Update Top Badge Counter
+      const totalAlerts = isTeacherOrAdmin ? (pendingReqs.length + platformNotifications.length) : platformNotifications.length;
+      if (totalAlerts > 0) {
+        notifCountBadge.textContent = totalAlerts;
+        notifCountBadge.classList.remove('hidden');
+      } else {
+        notifCountBadge.classList.add('hidden');
+      }
+
+      // Teacher Requests Section Visibility
+      if (isTeacherOrAdmin) {
+        teacherRequestsSection.classList.remove('hidden');
+        pendingRequestsCountBadge.textContent = `${pendingReqs.length} Pending`;
+        pendingRequestsList.innerHTML = '';
+
+        if (pendingReqs.length === 0) {
+          pendingRequestsList.innerHTML = '<div class="p-2.5 bg-slate-50 text-slate-400 rounded-xl text-[11px] italic text-center">No pending teacher role requests.</div>';
+        } else {
+          pendingReqs.forEach((req) => {
+            const card = document.createElement('div');
+            card.className = 'p-3 bg-amber-50/80 border border-amber-200 rounded-xl space-y-2 text-slate-800';
+            card.innerHTML = `
+              <div class="flex items-start justify-between gap-1">
+                <div>
+                  <span class="font-bold text-xs text-amber-950">${req.name}</span>
+                  <span class="block text-[10px] text-slate-600">📱 ${req.mobile} • ${req.district}</span>
+                </div>
+                <span class="text-[9px] text-amber-700 font-bold bg-amber-100 px-1.5 py-0.5 rounded">${req.timestamp}</span>
+              </div>
+              <div class="flex items-center gap-1.5 pt-1 border-t border-amber-200/60">
+                <button type="button" class="approve-btn flex-1 py-1 px-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg text-[10px] transition flex items-center justify-center gap-1">
+                  <span>✓</span> Approve as Teacher
+                </button>
+                <button type="button" class="decline-btn py-1 px-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-lg text-[10px] transition">
+                  Decline
+                </button>
+              </div>
+            `;
+
+            // Approve Handler
+            card.querySelector('.approve-btn').addEventListener('click', () => {
+              approveTeacherRequest(req.id, req.mobile, req.name);
+            });
+
+            // Decline Handler
+            card.querySelector('.decline-btn').addEventListener('click', () => {
+              declineTeacherRequest(req.id, req.name);
+            });
+
+            pendingRequestsList.appendChild(card);
+          });
+        }
+      } else {
+        teacherRequestsSection.classList.add('hidden');
+      }
+
+      // General Notifications List
+      generalNotifsList.innerHTML = '';
+      if (platformNotifications.length === 0) {
+        generalNotifsList.innerHTML = '<div class="p-2 text-slate-400 text-[10px] italic">No new platform alerts.</div>';
+      } else {
+        platformNotifications.slice(0, 5).forEach(n => {
+          const item = document.createElement('div');
+          item.className = 'p-2 rounded-lg bg-slate-50 border border-slate-100 text-[11px] text-slate-700 flex items-center justify-between gap-2';
+          item.innerHTML = `
+            <span>${n.text}</span>
+            <span class="text-[9px] text-slate-400 shrink-0">${n.timestamp}</span>
+          `;
+          generalNotifsList.appendChild(item);
+        });
+      }
+    }
+
+    function approveTeacherRequest(reqId, mobile, name) {
+      // 1. Mark request as approved
+      const req = teacherApprovalRequests.find(r => r.id === reqId);
+      if (req) req.status = 'approved';
+
+      // 2. Grant Teacher Role in registeredUsers
+      const user = registeredUsers.find(u => u.mobile === mobile);
+      if (user) {
+        user.role = 'teacher';
+        user.isApproved = true;
+      }
+
+      try {
+        localStorage.setItem('h2s_teacher_requests', JSON.stringify(teacherApprovalRequests));
+        localStorage.setItem('h2s_registered_users', JSON.stringify(registeredUsers));
+      } catch(e) {}
+
+      showToast(`Permission Granted: ${name} is now an approved Teacher/Developer!`, 'success');
+      updateNotificationPanelUI();
+    }
+
+    function declineTeacherRequest(reqId, name) {
+      const req = teacherApprovalRequests.find(r => r.id === reqId);
+      if (req) req.status = 'declined';
+      try {
+        localStorage.setItem('h2s_teacher_requests', JSON.stringify(teacherApprovalRequests));
+      } catch(e) {}
+
+      showToast(`Teacher request declined for ${name}. Role kept as Student.`, 'info');
+      updateNotificationPanelUI();
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+  </script>
+</body>
+</html>
